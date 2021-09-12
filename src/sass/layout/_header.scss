@@ -56,7 +56,7 @@
 .header::before {
   content: '';
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 106px;
   height: 90px;
@@ -86,15 +86,15 @@
 // tittle
 
 .header__title {
-  font-weight: 900;
-  font-size: 18px;
+  font-weight: var(--header-title-font-weight);
+  font-size: var(--modal-text-font-size);
   line-height: 1.22;
   text-align: center;
   color: var(--primary-title-color);
 
   @media screen and (min-width: 768px) and (max-width: 1279.99px) {
     max-width: 353px;
-    font-size: 30px;
+    font-size: var(--header-title-font-size-tablet);
     line-height: 1.23;
 
     margin-left: auto;
@@ -102,7 +102,7 @@
   }
   @media screen and (min-width: 1280px) {
     max-width: 589px;
-    font-size: 50px;
+    font-size: var(--header-title-font-size-desktop);
     line-height: 1.22;
     margin-left: auto;
     margin-right: auto;
@@ -125,7 +125,7 @@
   height: 40px;
   padding: 10px 30px;
   border: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--input-bg-color);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   color: var(--input-text-color);
