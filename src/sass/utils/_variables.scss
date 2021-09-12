@@ -7,8 +7,21 @@
   --modal-background-color: rgba(255, 242, 253, 1);
   --buy-ticket-bg-color: rgba(255, 242, 253, 1);
   --input-text-color: rgba(147, 147, 147, 1);
+  --input-bg-color: rgba(255, 255, 255, 0.2);
 
   // fonts:
 
-  --primary-font: 'Montserrat', sans-serif;
+  --primary-font-family: 'Montserrat', sans-serif;
+
+  --header-title-font-weight: 900;
+  --input-font-weight: 400; // --list-date-font-weight;
+  --list-title-font-weight: 700;
+  --list-place-font-weight: 600;
+
+  --primary-font-size: 16px;
+  --input-place-font-size: 14px;
+  --modal-title-font-size: 24px;
+  --modal-text-font-size: 18px;
+  --header-title-font-size-desktop: 50px;
+  --header-title-font-size-tablet: 30px;
 }

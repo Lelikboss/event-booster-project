@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   max-width: 767.99px;
   padding-top: 78px;
   padding-bottom: 112px;
@@ -53,41 +54,58 @@
 // logo
 
 .header::before {
-  margin-top: -78px;
   content: '';
   position: absolute;
+  top: 0;
+  left: 0;
   width: 106px;
   height: 90px;
   background-image: url(/images/logo/logo-mobile-1x.png);
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url(/images/logo/logo-mobile-2x.png);
+    background-size: contain;
+  }
   @media screen and (min-width: 768px) and (max-width: 1279.99px) {
     background-image: url(/images/logo/logo-tablet-1x.png);
     width: 180px;
     height: 150px;
-    margin-top: -40px;
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(/images/logo/logo-tablet-2x.png);
+    }
   }
   @media screen and(min-width:1280px) {
     background-image: url(/images/logo/logo-desktop-1x.png);
     width: 240px;
     height: 200px;
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(/images/logo/logo-desktop-2x.png);
+    }
   }
 }
 
 // tittle
 
 .header__title {
-  font-weight: 900;
-  font-size: 18px;
+  font-weight: var(--header-title-font-weight);
+  font-size: var(--modal-text-font-size);
   line-height: 1.22;
   text-align: center;
   color: var(--primary-title-color);
 
   @media screen and (min-width: 768px) and (max-width: 1279.99px) {
-    font-size: 30px;
+    max-width: 353px;
+    font-size: var(--header-title-font-size-tablet);
     line-height: 1.23;
+
+    margin-left: auto;
+    margin-right: auto;
   }
   @media screen and (min-width: 1280px) {
-    font-size: 50px;
+    max-width: 589px;
+    font-size: var(--header-title-font-size-desktop);
     line-height: 1.22;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -107,7 +125,7 @@
   height: 40px;
   padding: 10px 30px;
   border: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--input-bg-color);
   backdrop-filter: blur(20px);
   border-radius: 20px;
   color: var(--input-text-color);
