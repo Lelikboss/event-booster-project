@@ -1,0 +1,169 @@
+.header {
+  max-width: 767.99px;
+  padding-top: 78px;
+  padding-bottom: 112px;
+  margin-left: auto;
+  margin-right: auto;
+
+  //  Background-image
+
+  background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+    linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+    url(/images/header-img/header-img-mobile-1x.jpeg);
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+      linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+      url(/images/header-img/header-img-mobile-2x.jpeg);
+  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+      linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+      url(/images/header-img/header-img-tablet-1x.jpeg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+        linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+        url(/images/header-img/header-img-tablet-2x.jpeg);
+    }
+    max-width: 1279.99px;
+    padding-top: 40px;
+    padding-bottom: 183px;
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+      linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+      url(/images/header-img/header-img-desktop-1x.jpeg);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
+        linear-gradient(180deg, rgba(13, 13, 13, 0.19) 0%, rgba(14, 14, 14, 0.8) 100%),
+        url(/images/header-img/header-img-desktop-2x.jpeg);
+    }
+    max-width: 1280px;
+    padding-bottom: 192px;
+  }
+}
+
+// logo
+
+.header::before {
+  margin-top: -78px;
+  content: '';
+  position: absolute;
+  width: 106px;
+  height: 90px;
+  background-image: url(/images/logo/logo-mobile-1x.png);
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    background-image: url(/images/logo/logo-tablet-1x.png);
+    width: 180px;
+    height: 150px;
+    margin-top: -40px;
+  }
+  @media screen and(min-width:1280px) {
+    background-image: url(/images/logo/logo-desktop-1x.png);
+    width: 240px;
+    height: 200px;
+  }
+}
+
+// tittle
+
+.header__title {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.22;
+  text-align: center;
+  color: var(--primary-title-color);
+
+  @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    font-size: 30px;
+    line-height: 1.23;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 50px;
+    line-height: 1.22;
+  }
+}
+
+// inputs
+
+.header__input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
+}
+
+.header__input {
+  width: 270px;
+  height: 40px;
+  padding: 10px 30px;
+  border: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  color: var(--input-text-color);
+}
+.header__search-form:first-child {
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+}
+.header__input::placeholder {
+  color: var(--input-text-color);
+}
+.header__search-form {
+  position: relative;
+}
+
+// inputs svg
+
+.header__search-btn,
+.header__choose-btn {
+  position: absolute;
+  top: 14px;
+  right: 32px;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+.header__search-btn::before {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  z-index: 5;
+  position: absolute;
+  background-image: url(/images/svg/search-icon.svg);
+  background-repeat: no-repeat;
+}
+.header__choose-form {
+  position: relative;
+}
+
+.header__choose-btn::before {
+  content: '';
+  top: 2px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  z-index: 5;
+  position: absolute;
+  background-image: url(/images/svg/polygon.svg);
+  background-repeat: no-repeat;
+}
