@@ -199,11 +199,12 @@
 // datalist
 
 datalist {
+  max-height: 240px;
   position: absolute;
   border: 0 none;
   border-radius: 20px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 datalist option {
