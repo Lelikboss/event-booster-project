@@ -1,0 +1,158 @@
+.events > .container {
+    margin-top: -50px;
+    padding: 0;
+}
+  
+.events {
+    margin-bottom: 60px;
+    @media screen and (max-width: 1280px) {
+        padding: 0;
+    }
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 80px;
+    }
+}
+  
+.events__el {
+    display: block;
+    width: 128px;
+    min-height: 231px;
+    margin-bottom: 30px;
+    position: relative;
+    cursor: pointer;
+  
+    @media (min-width: 768px) {
+        width: 194px;
+        min-height: 312px;
+        margin-bottom: 45px;
+    }
+  
+    @media (min-width: 1280px) {
+        width: 196px;
+        margin-bottom: 50px;
+    }
+}
+
+.events__el-image {
+    height: 161px;
+    width: 128px;
+    border-radius: 50px 0px;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+        height: 227px;
+        width: 180px;
+    }
+}
+  
+.events__el-image > img {
+    position: relative;
+    z-index: 100;
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.events__meta {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+  
+  .events__meta-title {
+    margin-bottom: 5px;
+    text-align: center;
+    color: #DC56C5;
+    font-size: 14px;
+    line-height: 17px; 
+
+    @media (min-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+  
+.events__meta-date {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: normal;
+  
+    @media (min-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+  
+.events__meta-place {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: white;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
+
+.events__meta-place::before {
+    content: url('../images/svg/place-mark.svg');
+    fill: white;
+    display: inline-block;
+    width: 7px;
+    height: 10px;
+    margin-right: 3px;
+}
+
+.events__el-square {
+    position: absolute;
+    width: 109px;
+    height: 101px;
+    right: -10px;
+    top: -9px;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 50px 0px;
+  
+    @media (min-width: 768px) {
+      right: 0px;
+      width: 153px;
+      height: 143px;
+    }
+}
+
+.events-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    margin-bottom: -30px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: -45px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: -50px;
+    }
+
+    @media screen and (max-width: 1278px) {
+        padding: 0;
+    }
+}

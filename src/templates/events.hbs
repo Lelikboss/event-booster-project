@@ -1,0 +1,16 @@
+{{#each this}}
+<li class="events__el" data-id='{{id}}'>
+    <div class="events__el-square"></div>
+    <div class="events__el-image">
+    <img alt='{{name}}' src="{{imageUrl}}"/>
+    </div>
+    <div class="events__meta">
+        <h2 class="events__meta-title">{{name}}</h2>
+        <h3 class ="events__meta-date">{{dates.start.localDate}}</h3>
+    {{#if _embedded.venues.0.name}} 
+        <span class="events__meta-place" id='{{id}}'>
+          {{_embedded.venues.0.name}}</span>
+    {{/if}}
+    </div>
+</li>
+{{/each}}
