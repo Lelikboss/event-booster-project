@@ -132,7 +132,14 @@
   backdrop-filter: blur(20px);
   border-radius: 20px;
   color: var(--input-text-color);
+  outline: none;
+
+  &:hover::placeholder,
+  &:focus::placeholder {
+    color: var(--primary-title-color);
+  }
 }
+
 .header__search-form:first-child {
   margin-bottom: 25px;
 
@@ -141,9 +148,11 @@
     margin-right: 30px;
   }
 }
+
 .header__input::placeholder {
   color: var(--input-text-color);
 }
+
 .header__search-form {
   position: relative;
 }
@@ -162,6 +171,7 @@
   background-color: transparent;
   cursor: pointer;
 }
+
 .header__search-btn::before {
   content: '';
   top: 0;
@@ -173,18 +183,69 @@
   background-image: url(/images/svg/search-icon.svg);
   background-repeat: no-repeat;
 }
+
 .header__choose-form {
   position: relative;
 }
 
-.header__choose-btn::before {
-  content: '';
-  top: 2px;
-  right: 0;
-  width: 16px;
-  height: 16px;
-  z-index: 5;
+// .header__choose-btn::before {
+//   content: '';
+//   top: 2px;
+//   right: 0;
+//   width: 16px;
+//   height: 16px;
+//   z-index: 5;
+//   position: absolute;
+//   background-image: url(/images/svg/polygon.svg);
+//   background-repeat: no-repeat;
+// }
+
+// datalist
+
+datalist {
+  max-height: 240px;
   position: absolute;
-  background-image: url(/images/svg/polygon.svg);
-  background-repeat: no-repeat;
+  border: 0 none;
+  border-radius: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 1000;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    background: var(--input-bg-color);
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 20px;
+    border-radius: 10px;
+    background: var(--input-text-color);
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--input-text-color);
+  }
+}
+
+datalist option {
+  width: 270px;
+  height: 40px;
+  padding: 10px 30px;
+  background-color: var(--input-bg-color);
+  color: var(--primary-title-color);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-text-color);
+    background-color: var(--primary-title-color);
+    outline: 0 none;
+  }
 }
