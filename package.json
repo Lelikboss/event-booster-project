@@ -28,6 +28,7 @@
   "dependencies": {
     "axios": "^0.21.4",
     "basiclightbox": "^5.0.4",
+    "datalist-css": "^1.0.0",
     "lodash.debounce": "^4.0.8",
     "pnotify": "^5.2.0",
     "tui-pagination": "^3.4.1"
