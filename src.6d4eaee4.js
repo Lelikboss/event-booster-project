@@ -77,4 +77,4 @@ module.exports=require("./lib/axios");
 },{"axios":"dZBD"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=require("./js/marcup.js"),t=a(require("./js/apiServices.js"));function a(e){return e&&e.__esModule?e:{default:e}}let d="US",n=1,o=" ",s=20;const i=()=>{s=window.matchMedia("(min-width: 768px) and (max-width: 1279.98px)").matches?21:20},c=()=>{s=window.matchMedia("(min-width: 768px) and (max-width: 1279.98px)").matches?21:20,(0,t.default)({countryCode:d,page:n,amountEl:s,keyword:o}).then(t=>{(0,e.itemEventMarcup)(t.data._embedded.events),console.log(t.data._embedded.events)}).catch(e=>console.log(e))};s=window.matchMedia("(min-width: 768px) and (max-width: 1279.98px)").matches?21:20,(0,t.default)({countryCode:d,page:n,amountEl:s,keyword:o}).then(t=>{(0,e.itemEventMarcup)(t.data._embedded.events),console.log(t.data._embedded.events)}).catch(e=>console.log(e));
 },{"./sass/main.scss":"clu1","./js/marcup.js":"elso","./js/apiServices.js":"tjio"}]},{},["Focm"], null)
-//# sourceMappingURL=/event-booster-project/src.a1fea6ad.js.map
+//# sourceMappingURL=/event-booster-project/src.6d4eaee4.js.map
