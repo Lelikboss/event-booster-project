@@ -86,6 +86,7 @@
 // tittle
 
 .header__title {
+  margin-bottom: 35px;
   font-weight: var(--header-title-font-weight);
   font-size: var(--modal-text-font-size);
   line-height: 1.22;
@@ -93,6 +94,7 @@
   color: var(--primary-title-color);
 
   @media screen and (min-width: 768px) and (max-width: 1279.99px) {
+    margin-bottom: 27px;
     max-width: 353px;
     font-size: var(--header-title-font-size-tablet);
     line-height: 1.23;
@@ -101,6 +103,7 @@
     margin-right: auto;
   }
   @media screen and (min-width: 1280px) {
+    margin-bottom: 52px;
     max-width: 589px;
     font-size: var(--header-title-font-size-desktop);
     line-height: 1.22;
