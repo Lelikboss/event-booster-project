@@ -31,6 +31,7 @@
     "country-list": "^2.2.0",
     "datalist-css": "^1.0.0",
     "get-all-country-info": "^1.1.6",
+    "js": "^0.1.0",
     "lodash.debounce": "^4.0.8",
     "pnotify": "^5.2.0",
     "simplebar": "^5.3.5",
