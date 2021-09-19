@@ -3,6 +3,9 @@ import { itemEventMarcup, listCountryMarcup } from './js/marcup.js';
 import getEventApi from './js/apiServices.js';
 import { getCode } from 'country-list';
 import { debounce } from 'lodash';
+import { notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
+import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import refs from './js/refs';
 
 let countryCode = ' ';
@@ -43,6 +46,7 @@ const amountElChange = () => {
   }
 };
 
+
 // работа с API
 const createEventMarcup = () => {
   amountElChange();
@@ -51,6 +55,15 @@ const createEventMarcup = () => {
       itemEventMarcup(result.data._embedded.events);
       console.log(result.data._embedded.events);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+
+      notice({
+        text: 'Sorry, there are no events for your query',
+        hide: true,
+        delay: 2000,
+        styling: 'custom'
+      })
+    });
 };
 createEventMarcup();

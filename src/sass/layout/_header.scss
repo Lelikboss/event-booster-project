@@ -123,21 +123,8 @@
   }
 }
 
-.header__input {
-  width: 270px;
-  height: 40px;
-  padding: 10px 30px;
-  border: transparent;
-  background-color: var(--input-bg-color);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  color: var(--input-text-color);
-  outline: none;
-
-  &:hover::placeholder,
-  &:focus::placeholder {
-    color: var(--primary-title-color);
-  }
+.header__search-form {
+  position: relative;
 }
 
 .header__search-form:first-child {
@@ -149,56 +136,46 @@
   }
 }
 
-.header__input::placeholder {
-  color: var(--input-text-color);
-}
-
-.header__search-form {
-  position: relative;
-}
-
-// inputs svg
-
-.header__search-btn,
-.header__choose-btn {
-  position: absolute;
-  top: 14px;
-  right: 32px;
-  width: 12px;
-  height: 12px;
-  padding: 0;
-  border: transparent;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.header__search-btn::before {
-  content: '';
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  z-index: 5;
-  position: absolute;
-  background-image: url(/images/svg/search-icon.svg);
-  background-repeat: no-repeat;
-}
-
 .header__choose-form {
   position: relative;
 }
 
-// .header__choose-btn::before {
-//   content: '';
-//   top: 2px;
-//   right: 0;
-//   width: 16px;
-//   height: 16px;
-//   z-index: 5;
-//   position: absolute;
-//   background-image: url(/images/svg/polygon.svg);
-//   background-repeat: no-repeat;
-// }
+.header__input {
+  width: 270px;
+  height: 40px;
+  padding: 10px 30px;
+  border: transparent;
+  background-color: var(--input-bg-color);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  color: var(--input-text-color);
+  outline: none;
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  &::placeholder {
+    color: var(--input-text-color);
+  }
+
+  &:hover::placeholder,
+  &:focus::placeholder {
+    color: var(--primary-title-color);
+  }
+}
+
+.header__input-search {
+  background-image: url(/images/svg/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 228px 14px;
+}
+
+.header__input-countries {
+  background-image: url(/images/svg/polygon.svg);
+  background-repeat: no-repeat;
+  background-position: 225px 16px;
+}
 
 // datalist
 
