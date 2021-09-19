@@ -163,7 +163,7 @@ body.show-modal .footer__modal {
 
   display: flex;
   flex-wrap: wrap;
-  /* margin-left: -30px; */
+  margin-left: -10px;
   margin-top: -5px;
 }
 
@@ -176,10 +176,10 @@ body.show-modal .footer__modal {
   justify-content: center;
 }
 .command__item {
-  margin-left: 30px;
+  margin-left: 10px;
   margin-top: 5px;
 
-  flex-basis: calc((100% - 30px * 3) / 3);
+  flex-basis: calc((100% - 10px * 3) / 3);
 }
 img {
   display: block;
