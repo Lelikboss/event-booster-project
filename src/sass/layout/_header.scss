@@ -125,20 +125,15 @@
 
 .header__search-form {
   position: relative;
-}
-
-.header__search-form:first-child {
-  margin-bottom: 25px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
-    margin-right: 30px;
   }
 }
 
-.header__choose-form {
-  position: relative;
-}
+// .header__choose-form {
+//   position: relative;
+// }
 
 .header__input {
   width: 270px;
@@ -166,9 +161,15 @@
 }
 
 .header__input-search {
+  margin-bottom: 25px;
   background-image: url(/images/svg/search-icon.svg);
   background-repeat: no-repeat;
   background-position: 228px 14px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
 }
 
 .header__input-countries {
@@ -225,6 +226,11 @@ datalist option {
     outline: 0 none;
   }
 }
-.change-border {
+.change-top-border {
   border-radius: 20px 20px 0 0;
+}
+
+.change-bottom-border {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
