@@ -1,3 +1,10 @@
-[data-simplebar] {
-  position: absolute;
+// [data-simplebar] {
+//   position: absolute;
+// }
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  top: 2px;
+  bottom: 2px;
+  width: 3px;
+  background-color: var(--input-text-color);
+  border-radius: 20px;
 }
