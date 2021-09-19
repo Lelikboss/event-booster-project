@@ -5,6 +5,9 @@ import { getCode } from 'country-list';
 import { debounce } from 'lodash';
 import SimpleBar from 'simplebar';
 import 'simplebar/dist/simplebar.css';
+import { notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
+import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import refs from './js/refs';
 const pageEl = document.querySelector('#pagination');
 let countryCode = ' ';
@@ -65,6 +68,7 @@ const onInputClick = e => {
 };
 
 refs.inputCountryEl.addEventListener('click', onInputClick);
+
 // работа с API
 const createEventMarcup = () => {
   amountElChange();
@@ -74,6 +78,15 @@ const createEventMarcup = () => {
       console.log(result.data._embedded.events);
       console.log(result.data.page); //  инфа по страницам !!!!!!!!!!!!!!!!!!!!
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+
+      notice({
+        text: 'Sorry, there are no events for your query',
+        hide: true,
+        delay: 2000,
+        styling: 'custom'
+      })
+    });
 };
 createEventMarcup();
