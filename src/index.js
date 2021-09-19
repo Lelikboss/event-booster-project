@@ -6,7 +6,6 @@ import { debounce } from 'lodash';
 import refs from './js/refs';
 const pageEl = document.querySelector('#pagination');
 let countryCode = ' ';
-let keyword = '';
 let page = 0;
 let keyword = ' ';
 let amountEl = 20;
