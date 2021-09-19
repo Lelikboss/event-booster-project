@@ -4,12 +4,21 @@ import getEventApi from './js/apiServices.js';
 import { getCode } from 'country-list';
 import { debounce } from 'lodash';
 import refs from './js/refs';
-
+const pageEl = document.querySelector('#pagination');
 let countryCode = ' ';
-let page = 1;
 let keyword = '';
+let page = 0;
+let keyword = ' ';
 let amountEl = 20;
-
+// pagination   ----  удалить потом !!!!    смотерть строчку 61
+pageEl.addEventListener('click', onPageNumberClick);
+function onPageNumberClick(e) {
+  refs.eventsContainer.innerHTML = '';
+  console.log(e.target.textContent);
+  page = e.target.textContent;
+  console.log(page);
+  createEventMarcup();
+}
 // поиск по стране
 const checkCountry = e => {
   e.preventDefault();
@@ -50,6 +59,7 @@ const createEventMarcup = () => {
     .then(result => {
       itemEventMarcup(result.data._embedded.events);
       console.log(result.data._embedded.events);
+      console.log(result.data.page); //  инфа по страницам !!!!!!!!!!!!!!!!!!!!
     })
     .catch(err => console.log(err));
 };
