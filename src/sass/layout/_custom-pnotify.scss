@@ -1,7 +1,6 @@
 [data-pnotify].custom-elem {
   font-family: var(--primary-font-family);
   font-weight: 400;
-  font-size: 12px;
 
   @media screen and (min-width: 768px) {
     min-width: 5px;
@@ -16,23 +15,19 @@
   -webkit-border-radius: 10px;
   border-radius: 10px;
   padding: 10px;
-  font-size: 14px;
 
   @media screen and (min-width: 768px) {
     max-width: 380px;
   }
 }
 
-[data-pnotify] .custom-title,
 [data-pnotify] .custom-text {
   margin-left: 20px;
   color: var(--primary-text-color);
+  font-size: 16px;
+  overflow-y: hidden;
 }
 
-[data-pnotify] .custom-title {
-  font-weight: bold;
-  font-size: 15px;
-}
 [data-pnotify] .custom-icon {
   color: var(--primary-text-color);
 

@@ -31,6 +31,9 @@ const checkCountry = e => {
   refs.eventsContainer.innerHTML = '';
   countryCode = getCode(countryName);
   console.log(countryCode);
+  refs.datalist.style.display = 'none';
+  refs.inputCountryEl.classList.add('change-bottom-border');
+  refs.inputCountryEl.value = countryName;
   createEventMarcup();
 };
 refs.dataCountryList.addEventListener('click', debounce(checkCountry, 1000));
@@ -49,6 +52,7 @@ const searchEvent = e => {
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
 refs.dataCountryList.style.position = 'absolute';
 
+
 // определяет к-во эл-в на странице в зависмости от вьюпорта
 const amountElChange = () => {
   if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
@@ -60,8 +64,10 @@ const amountElChange = () => {
 
 // смена стилей инпута поиска страны
 const onInputClick = e => {
+  refs.datalist.style.display = 'block';
+  refs.inputCountryEl.classList.remove('change-bottom-border')
   if (!e.target.list) {
-    refs.inputCountryEl.classList.add('change-border');
+    refs.inputCountryEl.classList.add('change-top-border');
   } else {
     console.log('no');
   }
@@ -80,7 +86,6 @@ const createEventMarcup = () => {
     })
     .catch(err => {
       console.log(err)
-
       notice({
         text: 'Sorry, there are no events for your query',
         hide: true,
