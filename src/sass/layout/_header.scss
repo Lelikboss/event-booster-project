@@ -183,31 +183,31 @@ datalist {
   max-height: 240px;
   position: absolute;
   border: 0 none;
-  border-radius: 20px;
+  border-radius: 0 0 20px 20px;
   overflow-x: hidden;
   overflow-y: scroll;
   z-index: 1000;
 
   &::-webkit-scrollbar {
-    width: 5px;
+    display: none;
   }
 
-  &::-webkit-scrollbar-track {
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    background: var(--input-bg-color);
-    background: transparent;
-  }
+  // &::-webkit-scrollbar-track {
+  //   -webkit-border-radius: 20px;
+  //   border-radius: 20px;
+  //   background: var(--input-bg-color);
+  //   background: transparent;
+  // }
 
-  &::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 20px;
-    border-radius: 10px;
-    background: var(--input-text-color);
-  }
+  // &::-webkit-scrollbar-thumb {
+  //   -webkit-border-radius: 20px;
+  //   border-radius: 10px;
+  //   background: var(--input-text-color);
+  // }
 
-  &::-webkit-scrollbar-thumb:window-inactive {
-    background: var(--input-text-color);
-  }
+  // &::-webkit-scrollbar-thumb:window-inactive {
+  //   background: var(--input-text-color);
+  // }
 }
 
 datalist option {
@@ -222,7 +222,9 @@ datalist option {
   &:hover,
   &:focus {
     color: var(--primary-text-color);
-    background-color: var(--primary-title-color);
     outline: 0 none;
   }
+}
+.change-border {
+  border-radius: 20px 20px 0 0;
 }

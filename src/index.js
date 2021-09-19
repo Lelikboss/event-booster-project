@@ -3,16 +3,26 @@ import { itemEventMarcup, listCountryMarcup } from './js/marcup.js';
 import getEventApi from './js/apiServices.js';
 import { getCode } from 'country-list';
 import { debounce } from 'lodash';
+import SimpleBar from 'simplebar';
+import 'simplebar/dist/simplebar.css';
 import { notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import refs from './js/refs';
-
+const pageEl = document.querySelector('#pagination');
 let countryCode = ' ';
-let page = 1;
-let keyword = '';
+let page = 0;
+let keyword = ' ';
 let amountEl = 20;
-
+// pagination   ----  удалить потом !!!!    смотерть строчку 61
+pageEl.addEventListener('click', onPageNumberClick);
+function onPageNumberClick(e) {
+  refs.eventsContainer.innerHTML = '';
+  console.log(e.target.textContent);
+  page = e.target.textContent;
+  console.log(page);
+  createEventMarcup();
+}
 // поиск по стране
 const checkCountry = e => {
   e.preventDefault();
@@ -25,6 +35,7 @@ const checkCountry = e => {
 };
 refs.dataCountryList.addEventListener('click', debounce(checkCountry, 1000));
 refs.dataCountryList.insertAdjacentHTML('beforeend', listCountryMarcup);
+new SimpleBar(refs.simpleEl, { autoHide: false });
 // поиск по событию
 const searchEvent = e => {
   e.preventDefault();
@@ -36,7 +47,8 @@ const searchEvent = e => {
   console.log(joinInputValue);
 };
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
-refs.simpleEl.style.position = 'absolute';
+refs.dataCountryList.style.position = 'absolute';
+
 // определяет к-во эл-в на странице в зависмости от вьюпорта
 const amountElChange = () => {
   if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
@@ -46,6 +58,16 @@ const amountElChange = () => {
   }
 };
 
+// смена стилей инпута поиска страны
+const onInputClick = e => {
+  if (!e.target.list) {
+    refs.inputCountryEl.classList.add('change-border');
+  } else {
+    console.log('no');
+  }
+};
+
+refs.inputCountryEl.addEventListener('click', onInputClick);
 
 // работа с API
 const createEventMarcup = () => {
@@ -54,6 +76,7 @@ const createEventMarcup = () => {
     .then(result => {
       itemEventMarcup(result.data._embedded.events);
       console.log(result.data._embedded.events);
+      console.log(result.data.page); //  инфа по страницам !!!!!!!!!!!!!!!!!!!!
     })
     .catch(err => {
       console.log(err)
