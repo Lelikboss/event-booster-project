@@ -5,7 +5,7 @@ const KEY = '5YjHLxiERacoASpI4A0M5bRuOeVRN8nS';
 const getEventApi = async ({ countryCode, page, amountEl, keyword }) => {
   try {
     const res = await axios.get(
-      `${BASIC_URL}&countryCode=${countryCode}&keyword=${keyword}&page=${page}&size=${amountEl}&apikey=${KEY}`,
+      `${BASIC_URL}&classificationName=music&countryCode=${countryCode}&keyword=${keyword}&page=${page}&size=${amountEl}&apikey=${KEY}`,
     );
     return res;
   } catch (error) {
