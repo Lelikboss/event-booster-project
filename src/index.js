@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import { itemEventMarcup, listCountryMarcup } from './js/marcup.js';
 import getEventApi from './js/apiServices.js';
+import './js/btnToTop';
 import { getCode } from 'country-list';
 import { debounce } from 'lodash';
 import SimpleBar from 'simplebar';
