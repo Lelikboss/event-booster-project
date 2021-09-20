@@ -1,13 +1,19 @@
 import eventTemplates from '../templates/events.hbs';
 import refs from './refs.js';
-import { getAllCountriesNames } from 'get-all-country-info';
+// import { getAllCountriesNames } from 'get-all-country-info';
 import modalTemplates from '../templates/modal.hbs';
+import countries from '../js/countries-list';
 
 export const itemEventMarcup = result => {
   const markup = eventTemplates(result);
     refs.eventMarcup.insertAdjacentHTML('beforeend', markup);
 };
-export const listCountryMarcup = getAllCountriesNames()
+// export const listCountryMarcup = getAllCountriesNames()
+//   .map(e => `<option>${e}</option>`)
+//   .sort()
+//   .join(' ');
+
+export const listCountryMarcup = countries
   .map(e => `<option>${e}</option>`)
   .sort()
   .join(' ');
