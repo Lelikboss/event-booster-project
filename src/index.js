@@ -1,10 +1,12 @@
 import './sass/main.scss';
-import { itemEventMarcup, listCountryMarcup, modalEventMarcup } from './js/marcup.js';
+import { itemEventMarcup, listCountryMarcup, modalEventMarcup, customModal } from './js/marcup.js';
 import getEventApi from './js/apiServices.js';
 import { getCode } from 'country-list';
 import { debounce } from 'lodash';
 import SimpleBar from 'simplebar';
 import 'simplebar/dist/simplebar.css';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import '../node_modules/@pnotify/core/dist/BrightTheme.css';
@@ -14,6 +16,13 @@ let countryCode = ' ';
 let page = 0;
 let keyword = ' ';
 let amountEl = 20;
+const onCardClick = e => {
+  if (e.target.dataset.id) {
+    const instance = basicLightbox.create(customModal());
+    instance.show();
+  }
+};
+refs.eventsContainer.addEventListener('click', onCardClick);
 // pagination   ----  удалить потом !!!!    смотерть строчку 61
 // pageEl.addEventListener('click', onPageNumberClick);
 // function onPageNumberClick(e) {
