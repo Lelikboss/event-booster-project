@@ -78,37 +78,37 @@ const amountElChange = () => {
 // work with API
 var eventsArr = [];
 let totalEl = 0;
-const createEventMarcup = async (e) => {
+const createEventMarcup = async e => {
   try {
     amountElChange();
-    const tempData = await getEventApi({ countryCode, page, amountEl, keyword })
+    const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
     eventsArr = tempData.data._embedded.events;
     totalEl = tempData.data.page.totalElements;
     if (!pagination) {
       pagination = pagingOptions(totalEl);
     }
     itemEventMarcup(eventsArr);
-  } catch(err => {
-      console.log(err);
-      notice({
-        text: 'Sorry, there are no events for your query',
-        hide: true,
-        delay: 2000,
-        styling: 'custom',
-      });
+  } catch (err) {
+    console.log(err);
+    notice({
+      text: 'Sorry, there are no events for your query',
+      hide: true,
+      delay: 2000,
+      styling: 'custom',
     });
-// changes of input styles for country search
-const onInputClick = e => {
-  refs.datalist.style.display = 'block';
-  refs.inputCountryEl.classList.remove('change-bottom-border');
-  if (!e.target.list) {
-    refs.inputCountryEl.classList.add('change-top-border');
-  } else {
-    console.log('no');
   }
-};
+  // changes of input styles for country search
+  const onInputClick = e => {
+    refs.datalist.style.display = 'block';
+    refs.inputCountryEl.classList.remove('change-bottom-border');
+    if (!e.target.list) {
+      refs.inputCountryEl.classList.add('change-top-border');
+    } else {
+      console.log('no');
+    }
+  };
 
-refs.inputCountryEl.addEventListener('click', onInputClick);
+  refs.inputCountryEl.addEventListener('click', onInputClick);
 };
 createEventMarcup();
 
@@ -117,9 +117,9 @@ function pagingOptions(numberOfEl) {
   var pagination = new Pagination(document.getElementById('pagination2'), {
     totalItems: numberOfEl, //set total items
     itemsPerPage: amountEl, //set amount elements to display per page
-    visiblePages: 15,       //quantity og pages that will be displayed on the screen
-    centerAlign: true,      //will the pagination navigation be displayed on the center of a screen
-    page: 1                 //starting page that will be showed with the very first load
+    visiblePages: 15, //quantity og pages that will be displayed on the screen
+    centerAlign: true, //will the pagination navigation be displayed on the center of a screen
+    page: 1, //starting page that will be showed with the very first load
   });
   return pagination;
 }
