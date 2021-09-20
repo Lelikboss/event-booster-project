@@ -7,10 +7,11 @@ window.addEventListener('click', e => {
     if (!e.target.closest('#countries') && (!e.target.closest('.header__input-js'))) { // при кліку будь де, крім списку країн та інпута
         closeDatalist();
         removeBorderRadius()
-        onPreviousPolygonSvg()
+        onPreviousPolygonSvg();
     }
 })
 refs.input.addEventListener('click', onReversePolygonSvg);
+refs.datalist.addEventListener('click', onPreviousPolygonSvg);
   
 
 function removeBorderRadius() {     // вертаємо попередній вигляд інпута
@@ -18,7 +19,7 @@ function removeBorderRadius() {     // вертаємо попередній в�
 }
 
 function closeDatalist() {   // ховаємо список країн
-    refs.datalist.style.display="none";
+    refs.datalist.style.display = "none";
 }
 
 function onReversePolygonSvg() {  // міняємо стрілку на зворотню
