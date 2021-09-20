@@ -21,6 +21,7 @@ const onCardClick = e => {
   if (e.target.dataset.id) {
     const instance = basicLightbox.create(customModal());
     instance.show();
+    refs.btnToTop.classList.add('visually-hidden');
   }
 };
 refs.eventsContainer.addEventListener('click', onCardClick);

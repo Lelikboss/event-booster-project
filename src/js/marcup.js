@@ -5,7 +5,7 @@ import modalTemplates from '../templates/modal.hbs';
 
 export const itemEventMarcup = result => {
   const markup = eventTemplates(result);
-  refs.eventMarcup.insertAdjacentHTML('beforeend', markup);
+    refs.eventMarcup.insertAdjacentHTML('beforeend', markup);
 };
 export const listCountryMarcup = getAllCountriesNames()
   .map(e => `<option>${e}</option>`)
@@ -14,7 +14,7 @@ export const listCountryMarcup = getAllCountriesNames()
 
 export const modalEventMarcup = result => {
   const modalWindow = modalTemplates(result);
-  refs.bodyEl.insertAdjacentHTML('beforeend', modalWindow);
+    refs.bodyEl.insertAdjacentHTML('beforeend', modalWindow);
 };
 
 export const customModal = result =>
