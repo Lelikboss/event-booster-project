@@ -196,6 +196,12 @@
   background-position: 225px 16px;
 }
 
+.header__input-countries--reverse {
+  background-image: url('/images/svg/polygon-reverse.svg');
+  background-repeat: no-repeat;
+  background-position: 225px 16px;
+}
+
 // datalist
 
 datalist {
@@ -244,6 +250,7 @@ datalist option {
   &:focus {
     color: var(--primary-text-color);
     outline: 0 none;
+    background-color: var(--primary-title-color);
   }
 }
 .change-top-border {
