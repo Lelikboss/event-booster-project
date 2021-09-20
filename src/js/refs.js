@@ -6,5 +6,6 @@ const refs = {
   datalist: document.querySelector('datalist'),
   eventsContainer: document.querySelector('.js-events-list'),
   inputEventSearch: document.querySelector('.header__input-search'),
+  bodyEl: document.querySelector('body'),
 };
 export default refs;

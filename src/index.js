@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import { itemEventMarcup, listCountryMarcup } from './js/marcup.js';
+import { itemEventMarcup, listCountryMarcup, modalEventMarcup } from './js/marcup.js';
 import getEventApi from './js/apiServices.js';
 import { getCode } from 'country-list';
 import { debounce } from 'lodash';
