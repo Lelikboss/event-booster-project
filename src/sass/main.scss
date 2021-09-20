@@ -1,8 +1,12 @@
 @import './utils/variables';
 @import './base/common';
 @import './base/container';
+@import './components/grid';
 @import './layout/header';
 @import './layout/footer';
 @import './layout/events-list';
 @import './layout/modal';
 @import './layout/custom-scrollbar';
+@import './layout/custom-pnotify';
+@import './layout/wrapper';
+@import './layout/btn-to-top';

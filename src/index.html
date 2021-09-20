@@ -6,6 +6,7 @@
     <title>Event Booster</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="/images/favicon.png">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
@@ -16,13 +17,25 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link href="../node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
-    <include src="./partials/header.html"></include>
-    <include src="./partials/events.html"></include>
-    <include src="./partials/pagination.html"></include>
-    <include src="./partials/footer.html"></include>
-
+    <div class="wrapper-for-decor">
+      <div class="total-wrapper">
+        <div class="wrapper-top--bg">
+          <include src="./partials/header.html"></include>
+          <include src="./partials/events.html"></include>
+          <include src="./partials/pagination.html"></include>
+        </div>
+        <include src="./partials/footer.html"></include>
+      </div>
+    </div>
+<include src="./partials/btnToTop.html"></include>
     <script src="./index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js"></script>
     <script src="./js/modal-footer.js" type="module"></script>

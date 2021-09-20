@@ -23,7 +23,7 @@
                         </li>
                         <li class="modal__item-info">
                             <h2 class="modal__item-title">WHEN</h2>
-                            <p class="modal__item-content">{{eventTimeContent}}</p>
+                            <p class="modal__item-content">{{dates.start.localDate}}</p>
                         </li>
                         <li class="modal__item-info">
                             <h2 class="modal__item-title">WHERE</h2>
@@ -38,16 +38,17 @@
                             <svg class="modal__ticket-icon">
                                 <use href="../images/svg/ticket.svg"></use>
                             </svg>
-                            <p class="modal__item-content">Standart {{eventLowPricesContent}} {{currency}}</p>
+
                         </li>
                         <ul class="modal__item-buttons">
                             <li>
+                                <p class="modal__item-content">Standart {{eventLowPricesContent}} {{currency}}</p>
                                 <button type="button" class="modal__btn" data-action="buy-cheap">
                                     BUY TICKETS
                                 </button>
                             </li>
-                            <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
                             <li>
+                                <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
                                 <button type="button" class="modal__btn" data-action="buy-expensive">
                                     BUY TICKETS
                                 </button>

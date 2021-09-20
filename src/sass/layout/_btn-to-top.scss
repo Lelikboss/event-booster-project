@@ -1,0 +1,27 @@
+.btn-to-top {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 30px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.7;
+
+  @media screen and (min-width: 768px) {
+    right: 25px;
+    padding: 0px;
+    bottom: 70px;
+    width: 50px;
+    height: 50px;
+  }
+  @media screen and (min-width: 1280px) {
+    right: 100px;
+    bottom: 100px;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 50px var(--primary-title-color);
+  }
+}
