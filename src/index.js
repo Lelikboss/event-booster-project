@@ -16,6 +16,18 @@ import refs from './js/refs';
 import Pagination from './../node_modules/tui-pagination';
 import './../node_modules/tui-pagination/dist/tui-pagination.css';
 
+function loadData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, 2000);
+  });
+}
+
+loadData().then(() => {
+  let preloaderEl = document.getElementById('preloader');
+  preloaderEl.classList.add('hidden');
+  preloaderEl.classList.remove('visible');
+});
+
 let countryCode = ' ';
 let page = 0;
 let keyword = ' ';
