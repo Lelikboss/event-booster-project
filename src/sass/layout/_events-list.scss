@@ -1,14 +1,16 @@
-.events > .container {
-  margin-top: -50px;
-  padding: 0;
-}
+// .events > .container {
+//   padding: 0;
+// }
 
 .events {
   margin-bottom: 60px;
   @media screen and (max-width: 1280px) {
-    padding: 0;
+    // padding: 0;
+    padding-top: 9px;
   }
   @media screen and (min-width: 1280px) {
+    padding-top: 13px;
+
     margin-bottom: 80px;
   }
 }
@@ -17,28 +19,25 @@
   --grid-item: 2;
   display: block;
   width: 128px;
-  min-height: 231px;
   position: relative;
   // cursor: pointer;
 
   @media (min-width: 768px) {
     --grid-item: 3;
     width: 194px;
-    min-height: 312px;
   }
 
   @media (min-width: 1280px) {
     --grid-item: 4;
-    width: 196px;
   }
 }
 
 .events__el::after {
-  content: " ";
+  content: ' ';
   position: absolute;
   width: 108px;
   height: 101px;
-  right: 0px;
+  right: -9px;
   top: -9px;
   border: 1px solid rgba(220, 86, 197, 0.3);
   border-radius: 50px 0px;
@@ -46,6 +45,7 @@
   @media (min-width: 768px) {
     width: 153px;
     height: 143px;
+    right: -13px;
     top: -13px;
   }
 }
