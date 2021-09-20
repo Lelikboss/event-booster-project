@@ -168,6 +168,8 @@
 
   &::placeholder {
     color: var(--input-text-color);
+
+    transition: color 250ms var(--cubic-bezier);
   }
 
   &:hover::placeholder,
@@ -235,6 +237,8 @@ datalist option {
   color: var(--primary-title-color);
   backdrop-filter: blur(6px);
   cursor: pointer;
+
+  transition: color 250ms var(--cubic-bezier);
 
   &:hover,
   &:focus {

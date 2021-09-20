@@ -47,6 +47,10 @@ const checkCountry = e => {
   refs.datalist.style.display = 'none';
   refs.inputCountryEl.classList.add('change-bottom-border');
   refs.inputCountryEl.value = countryName;
+
+  if (countryName === 'All countries') {
+    countryCode = '';
+  }
   createEventMarcup();
 };
 refs.dataCountryList.addEventListener('click', debounce(checkCountry, 1000));
