@@ -15,14 +15,14 @@ let page = 0;
 let keyword = ' ';
 let amountEl = 20;
 // pagination   ----  удалить потом !!!!    смотерть строчку 61
-pageEl.addEventListener('click', onPageNumberClick);
-function onPageNumberClick(e) {
-  refs.eventsContainer.innerHTML = '';
-  console.log(e.target.textContent);
-  page = e.target.textContent;
-  console.log(page);
-  createEventMarcup();
-}
+// pageEl.addEventListener('click', onPageNumberClick);
+// function onPageNumberClick(e) {
+//   refs.eventsContainer.innerHTML = '';
+//   console.log(e.target.textContent);
+//   page = e.target.textContent;
+//   console.log(page);
+//   createEventMarcup();
+// }
 // поиск по стране
 const checkCountry = e => {
   e.preventDefault();
@@ -52,7 +52,6 @@ const searchEvent = e => {
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
 refs.dataCountryList.style.position = 'absolute';
 
-
 // определяет к-во эл-в на странице в зависмости от вьюпорта
 const amountElChange = () => {
   if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
@@ -65,7 +64,7 @@ const amountElChange = () => {
 // смена стилей инпута поиска страны
 const onInputClick = e => {
   refs.datalist.style.display = 'block';
-  refs.inputCountryEl.classList.remove('change-bottom-border')
+  refs.inputCountryEl.classList.remove('change-bottom-border');
   if (!e.target.list) {
     refs.inputCountryEl.classList.add('change-top-border');
   } else {
@@ -85,13 +84,13 @@ const createEventMarcup = () => {
       console.log(result.data.page); //  инфа по страницам !!!!!!!!!!!!!!!!!!!!
     })
     .catch(err => {
-      console.log(err)
+      console.log(err);
       notice({
         text: 'Sorry, there are no events for your query',
         hide: true,
         delay: 2000,
-        styling: 'custom'
-      })
+        styling: 'custom',
+      });
     });
 };
 createEventMarcup();
