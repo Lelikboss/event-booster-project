@@ -12,11 +12,23 @@ import { notice } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import refs from './js/refs';
-const pageEl = document.querySelector('#pagination');
+import Pagination from './../node_modules/tui-pagination';
+import './../node_modules/tui-pagination/dist/tui-pagination.css';
+
 let countryCode = ' ';
 let page = 0;
 let keyword = ' ';
 let amountEl = 20;
+var pagination;
+//function that draws backend data after retrieving it
+function onPageNumberClick(e) {
+  e.preventDefault();
+  refs.eventsContainer.innerHTML = '';
+  page = Number.parseInt(e.target.textContent);
+  createEventMarcup();
+  pagination.movePageTo(page);
+}
+// search by country name
 const onCardClick = e => {
   if (e.target.dataset.id) {
     const instance = basicLightbox.create(customModal());
@@ -25,16 +37,6 @@ const onCardClick = e => {
   }
 };
 refs.eventsContainer.addEventListener('click', onCardClick);
-// pagination   ----  удалить потом !!!!    смотерть строчку 61
-// pageEl.addEventListener('click', onPageNumberClick);
-// function onPageNumberClick(e) {
-//   refs.eventsContainer.innerHTML = '';
-//   console.log(e.target.textContent);
-//   page = e.target.textContent;
-//   console.log(page);
-//   createEventMarcup();
-// }
-// поиск по стране
 const checkCountry = e => {
   e.preventDefault();
   console.log(e.target.value);
@@ -49,8 +51,8 @@ const checkCountry = e => {
 };
 refs.dataCountryList.addEventListener('click', debounce(checkCountry, 1000));
 refs.dataCountryList.insertAdjacentHTML('beforeend', listCountryMarcup);
+// search by event
 new SimpleBar(refs.simpleEl, { autoHide: false });
-// поиск по событию
 const searchEvent = e => {
   e.preventDefault();
   let searchEv = e.target.value;
@@ -61,9 +63,10 @@ const searchEvent = e => {
   console.log(joinInputValue);
 };
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
+refs.simpleEl.style.position = 'absolute';
+// defines the quantity of elements on a page depending on a viewport
 refs.dataCountryList.style.position = 'absolute';
 
-// определяет к-во эл-в на странице в зависмости от вьюпорта
 const amountElChange = () => {
   if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
     amountEl = 21;
@@ -72,7 +75,29 @@ const amountElChange = () => {
   }
 };
 
-// смена стилей инпута поиска страны
+// work with API
+var eventsArr = [];
+let totalEl = 0;
+const createEventMarcup = async (e) => {
+  try {
+    amountElChange();
+    const tempData = await getEventApi({ countryCode, page, amountEl, keyword })
+    eventsArr = tempData.data._embedded.events;
+    totalEl = tempData.data.page.totalElements;
+    if (!pagination) {
+      pagination = pagingOptions(totalEl);
+    }
+    itemEventMarcup(eventsArr);
+  } catch(err => {
+      console.log(err);
+      notice({
+        text: 'Sorry, there are no events for your query',
+        hide: true,
+        delay: 2000,
+        styling: 'custom',
+      });
+    });
+// changes of input styles for country search
 const onInputClick = e => {
   refs.datalist.style.display = 'block';
   refs.inputCountryEl.classList.remove('change-bottom-border');
@@ -84,24 +109,19 @@ const onInputClick = e => {
 };
 
 refs.inputCountryEl.addEventListener('click', onInputClick);
-
-// работа с API
-const createEventMarcup = () => {
-  amountElChange();
-  getEventApi({ countryCode, page, amountEl, keyword })
-    .then(result => {
-      itemEventMarcup(result.data._embedded.events);
-      console.log(result.data._embedded.events);
-      console.log(result.data.page); //  инфа по страницам !!!!!!!!!!!!!!!!!!!!
-    })
-    .catch(err => {
-      console.log(err);
-      notice({
-        text: 'Sorry, there are no events for your query',
-        hide: true,
-        delay: 2000,
-        styling: 'custom',
-      });
-    });
 };
 createEventMarcup();
+
+//created pagination obj
+function pagingOptions(numberOfEl) {
+  var pagination = new Pagination(document.getElementById('pagination2'), {
+    totalItems: numberOfEl, //set total items
+    itemsPerPage: amountEl, //set amount elements to display per page
+    visiblePages: 15,       //quantity og pages that will be displayed on the screen
+    centerAlign: true,      //will the pagination navigation be displayed on the center of a screen
+    page: 1                 //starting page that will be showed with the very first load
+  });
+  return pagination;
+}
+const paging = document.getElementById('pagination2');
+paging.addEventListener('click', onPageNumberClick);
