@@ -2,6 +2,10 @@
   border: none;
   color: var(--primary-text-color);
 }
+.tui-pagination .tui-page-btn:hover {
+  background-color: inherit;
+  color: #dc56c5;
+}
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
   border-color: #4b96e6;

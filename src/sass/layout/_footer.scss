@@ -111,7 +111,7 @@ body.show-modal .footer__modal {
 }
 
 .footer__modal {
-  padding: 26px;
+  padding: 30px;
   border-radius: 100px 0px;
   max-width: 540px;
   width: 100%;
@@ -173,10 +173,12 @@ body.show-modal .footer__modal {
 }
 .command__box {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  list-style: none;
+  padding-left: 0;
 }
 .command__item {
-  margin-left: 10px;
+  // margin-left: 10px;
   margin-top: 5px;
 
   flex-basis: calc((100% - 10px * 3) / 3);

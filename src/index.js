@@ -16,6 +16,7 @@ import Pagination from './../node_modules/tui-pagination';
 import './../node_modules/tui-pagination/dist/tui-pagination.css';
 import modalTemplates from './templates/modal.hbs';
 import scrollIntoView from './js/scroll.js';
+import './js/open-modal';
 import './sass/main.scss';
 
 function loadData() {
@@ -117,6 +118,7 @@ createEventMarcup();
 
 const paging = document.getElementById('pagination2');
 
+
 const onCardClick = e => {
   if (e.target.dataset.id) {
     console.log(e.target.dataset.id);
@@ -132,13 +134,15 @@ const onCardClick = e => {
         },
       });
 
-      instance.show();
-      //!
-      refs.btnToTop.classList.add('visually-hidden');
-    });
-  }
-};
-refs.eventsContainer.addEventListener('click', onCardClick);
+pagination.on('beforeMove', async e => {
+  page = e.page;
+  const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
+  eventsArr = tempData.data._embedded.events;
+  itemEventMarcup(eventsArr);
+
+
+
+
 
 
 function paginationInit() {
