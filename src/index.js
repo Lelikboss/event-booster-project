@@ -81,45 +81,16 @@ refs.simpleEl.style.position = 'absolute';
 // defines the quantity of elements on a page depending on a viewport
 refs.dataCountryList.style.position = 'absolute';
 
-const amountElChange = () => {
-  if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
-    amountEl = 21;
-  } else {
-    amountEl = 20;
-  }
-};
 // work with API
-var eventsArr = [];
 let totalEl = 0;
-var pagination = new Pagination(document.getElementById('pagination2'), {
-  //totalItems: 100, //set total items
-  itemsPerPage: 5,//amountEl + 10, //set amount elements to display per page
-  visiblePages: 15, //quantity og pages that will be displayed on the screen
-  centerAlign: true, //will the pagination navigation be displayed on the center of a screen
-  page: 1, //starting page that will be showed with the very first load
-});
-
-let totalItems;
-const init = async total => {
-  if (total === undefined && !totalItems) {
-    const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
-    totalItems = tempData.data.page.totalElements;
-  }
-
-  if (total === undefined) {
-    total = totalItems;
-  }
-  console.log(total);
-  pagination.setTotalItems(total);
-  pagination.reset();
-};
-init();
+var eventsArr = [];
 const createEventMarcup = async e => {
   try {
     // amountElChange();
     const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
     eventsArr = tempData.data._embedded.events;
     totalEl = tempData.data.page.totalElements;
+    pagination = paginationInit();
     itemEventMarcup(eventsArr);
   } catch (err) {
     console.log(err);
@@ -145,152 +116,66 @@ const createEventMarcup = async e => {
 };
 createEventMarcup();
 
-//created pagination obj
-// function pagingOptions(numberOfEl) {
-// var pagination = new Pagination(document.getElementById('pagination2'), {
-//   totalItems: numberOfEl, //set total items
-//   itemsPerPage: 30,//amountEl + 10, //set amount elements to display per page
-//   visiblePages: 15, //quantity og pages that will be displayed on the screen
-//   centerAlign: true, //will the pagination navigation be displayed on the center of a screen
-//   page: 1, //starting page that will be showed with the very first load
-// });
-// return pagination;
-// }
 const paging = document.getElementById('pagination2');
-// paging.addEventListener('click', onPageNumberClick);
+
+
+const onCardClick = e => {
+  if (e.target.dataset.id) {
+    console.log(e.target.dataset.id);
+    idNum = e.target.dataset.id;
+
+    console.log(idNum);
+    getIdApi(idNum).then(res => {
+      console.log(res.data._embedded.events[0]);
+      const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]), {
+        onShow: instance => {
+          instance.element().querySelector('[data-action=modal-close]').onclick = () =>
+            instance.close();
+        },
+      });
 
 pagination.on('beforeMove', async e => {
   page = e.page;
   const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
   eventsArr = tempData.data._embedded.events;
   itemEventMarcup(eventsArr);
-});
 
-// paging.addEventListener('click', debounce(scrollIntoView, 500));
-// const modalCard = async idNum => {
-//   const tempData = await getIdApi(idNum);
-//   console.log(tempData);
-// };
-// const onCardClick = e => {
-//   if (e.target.dataset.id) {
-//     console.log(e.target.dataset.id);
-//     idNum = e.target.dataset.id;
 
-//     console.log(idNum);
-//     getIdApi(idNum).then(res => {
-//       console.log(res.data._embedded.events[0]);
-//       // const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]));
-//       // instance.show();
-//       // const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]));
-//       // instance.show();
-//       //!
-//       const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]), {
-//         onShow: instance => {
-//           instance.element().querySelector('[data-action=modal-close]').onclick = () =>
-//             instance.close();
-//         },
-//       });
 
-//       instance.show();
-//       //!
-//       refs.btnToTop.classList.add('visually-hidden');
-//     });
-//   }
-// };
-// refs.eventsContainer.addEventListener('click', onCardClick);
 
-// getIdApi(idNum).then(res => {
-//   console.log(res);
-//   refs.eventsContainer.addEventListener('click', onCardClick);
-// });
 
-// const onCardClick = e => {
-//   if (e.target.dataset.id) {
-//     console.log(e.target.dataset.id);
-//     const instance = basicLightbox.create(customModal());
-//     instance.show();
-//     refs.btnToTop.classList.add('visually-hidden');
-//   }
-// };
-// refs.eventsContainer.addEventListener('click', onCardClick);
-// modalCard();
 
-{
-  /* <div class="modal__window">
-  <button type="button" class="modal__close-btn" data-action="modal-close">
-    <svg class="modal__close-icon">
-      <use href="../images/svg/close-modal.svg"></use>
-    </svg>
-  </button>
+function paginationInit() {
+  console.log('inside paginationInit');
+  pagination = new Pagination(document.getElementById('pagination2'), {
+    //totalItems: number, //set total items
+    itemsPerPage: 5,//amountEl + 10, //set amount elements to display per page
+    visiblePages: 5, //quantity og pages that will be displayed on the screen
+    centerAlign: true, //will the pagination navigation be displayed on the center of a screen
+    page: 1, //starting page that will be showed with the very first load
+  });
 
-  <div class="modal__event-header">
-    <img
-      src="${res.data._embedded.events[0].images[1].url}"
-      alt="icon"
-      class="modal__event__icon"
-    />
-  </div>
-  <div class="modal__content-wrapper">
-    <div class="modal__event-content-image">
-      <img
-        src="${res.data._embedded.events[0].images[2].url}"
-        alt="icon"
-        class="modal__event-poster"
-      />
-    </div>
+  pagination.on('beforeMove', async e => {
+    pagination.page = e.page;
+    const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
+    eventsArr = tempData.data._embedded.events;
+    itemEventMarcup(eventsArr);
+  });
 
-    <div class="modal__event-content">
-      <ul class="modal__event-container">
-        <li class="modal__item-info">
-          <h2 class="modal__item-title">INFO</h2>
-          <p class="modal__item-content">Оч много</p>
-        </li>
-        <li class="modal__item-info">
-          <h2 class="modal__item-title">WHEN</h2>
-          <p class="modal__item-content">${res.data._embedded.events[0].dates.start.localDate}</p>
-        </li>
-        <li class="modal__item-info">
-          <h2 class="modal__item-title">WHERE</h2>
-          <p class="modal__item-content">
-            ${res.data._embedded.events[0]._embedded.venues[0].name}
-          </p>
-        </li>
-        <li class="modal__item-info">
-          <h2 class="modal__item-title">WHO</h2>
-          <p class="modal__item-content">{{ eventWhoContent }}</p>
-        </li>
-        <li class="modal__item-info">
-          <h2 class="modal__item-title">PRICES</h2>
-          <svg class="modal__ticket-icon">
-            <use href="../images/svg/ticket.svg"></use>
-          </svg>
-        </li>
-        <ul class="modal__item-buttons">
-          <li>
-            <p class="modal__item-content">
-              Standart {{ eventLowPricesContent }} {{ currency }}
-            </p>
-            <button type="button" class="modal__btn" data-action="buy-cheap">
-              BUY TICKETS
-            </button>
-          </li>
-          <li>
-            <p class="modal__item-content">
-              VIP {{ eventHighPricesContent }} {{ currency }}
-            </p>
-            <button type="button" class="modal__btn" data-action="buy-expensive">
-              BUY TICKETS
-            </button>
-          </li>
-        </ul>
-      </ul>
+  let totalItems;
+  const init = async total => {
+    if (total === undefined && !totalItems) {
+      const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
+      totalItems = tempData.data.page.totalElements;
+    }
 
-      <div class="modal__more-btn-container">
-        <button type="button" class="modal__more-btn">
-          MORE FROM THIS AUTHOR
-        </button>
-      </div>
-    </div>
-  </div>
-</div>; */
+    if (total === undefined) {
+      total = totalItems;
+    }
+    console.log(total);
+    pagination.setTotalItems(total);
+    pagination.reset();
+  };
+  init();
+  return pagination;
 }
