@@ -16,6 +16,7 @@ import Pagination from './../node_modules/tui-pagination';
 import './../node_modules/tui-pagination/dist/tui-pagination.css';
 import modalTemplates from './templates/modal.hbs';
 import scrollIntoView from './js/scroll.js';
+import './js/open-modal';
 import './sass/main.scss';
 
 function loadData() {
