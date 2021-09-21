@@ -1,0 +1,17 @@
+.tui-pagination .tui-page-btn {
+  border: none;
+  color: var(--primary-text-color);
+}
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  border-color: #4b96e6;
+  cursor: default;
+}
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  color: var(--primary-title-color);
+  background-color: inherit;
+  border: 1px solid #dc56c5;
+  box-sizing: border-box;
+  border-radius: 10px 0px;
+}

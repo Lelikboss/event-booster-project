@@ -142,4 +142,34 @@
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
+  min-height: 100vh;
+}
+
+.events__el {
+  animation-name: show;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.events__el-image {
+  animation-name: show-img;
+  animation-duration: 2000ms;
+  animation-timing-function: linear;
+}
+@keyframes show-img {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

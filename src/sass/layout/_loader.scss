@@ -1,4 +1,5 @@
 #preloader {
+  padding-top: 200px;
   position: fixed;
   left: 0;
   top: 0;
@@ -6,8 +7,11 @@
   width: 100%;
   height: 100%;
   overflow: visible;
-  background: #fbfbfb url('//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif')
-    no-repeat center center;
+  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616532302_47-p-fon-dlya-afishi-50.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background: #fbfbfb url('//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif')
+  //   no-repeat center center;
 }
 
 .visible {
