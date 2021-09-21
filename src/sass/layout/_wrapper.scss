@@ -23,7 +23,7 @@
         url(/images/header-img/header-img-tablet-2x.jpeg);
     }
     background-position: center top;
-    background-size: contain, contain, 629px, contain;
+    background-size: contain, contain, 640px, contain;
   }
   @media screen and (min-width: 1280px) {
     background-image: linear-gradient(180deg, rgba(13, 13, 13, 0) 0%, rgba(14, 14, 14, 0.8) 100%),
@@ -38,7 +38,7 @@
         url(/images/header-img/header-img-desktop-2x.jpeg);
     }
     background-position: center top;
-    background-size: 1280px, 1280px, 1085px, 1280px;
+    background-size: 1280px, 1280px, 1105px, 1280px;
   }
 }
 .total-wrapper {
@@ -47,16 +47,16 @@
   background-position: center;
 
   @media screen and (min-width: 768px) and (max-width: 1279.99px) {
-    background-image: url('/images/background/wrapper/bg-tablet-1x.png');
+    background-image: url('/images/background/wrapper/bg-tablet-1x.jpeg');
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: url('/images/background/wrapper/bg-tablet-2x.png');
+      background-image: url('/images/background/wrapper/bg-tablet-2x.jpeg');
     }
   }
 
   @media screen and (min-width: 1280px) {
-    background-image: url('/images/background/wrapper/bg-desktop-1x.png');
+    background-image: url('/images/background/wrapper/bg-desktop-1x.jpeg');
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
-      background-image: url('/images/background/wrapper/bg-desktop-2x.png');
+      background-image: url('/images/background/wrapper/bg-desktop-2x.jpeg');
     }
   }
 }
