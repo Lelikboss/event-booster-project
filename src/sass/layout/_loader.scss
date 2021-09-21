@@ -25,3 +25,24 @@
   opacity: 0;
   transition: visibility 0s 2s, opacity 2s linear;
 }
+
+#preloader .header__title {
+  animation-name: show-title;
+  animation-duration: 9000ms;
+  animation-timing-function: linear;
+  transform: scale(7);
+  opacity: 0;
+}
+@keyframes show-title {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(7);
+  }
+}
