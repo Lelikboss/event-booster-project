@@ -37,13 +37,13 @@ let keyword = ' ';
 let amountEl = 20;
 var pagination;
 //function that draws backend data after retrieving it
-function onPageNumberClick(e) {
-  e.preventDefault();
-  refs.eventsContainer.innerHTML = '';
-  page = Number.parseInt(e.target.textContent);
-  createEventMarcup();
-  pagination.movePageTo(page);
-}
+// function onPageNumberClick(e) {
+//   e.preventDefault();
+//   refs.eventsContainer.innerHTML = '';
+//   page = Number.parseInt(e.target.textContent);
+// createEventMarcup();
+// pagination.movePageTo(page);
+// }
 // search by country name
 
 const checkCountry = e => {
@@ -90,15 +90,35 @@ const amountElChange = () => {
 // work with API
 var eventsArr = [];
 let totalEl = 0;
+var pagination = new Pagination(document.getElementById('pagination2'), {
+  //totalItems: 100, //set total items
+  itemsPerPage: 5,//amountEl + 10, //set amount elements to display per page
+  visiblePages: 15, //quantity og pages that will be displayed on the screen
+  centerAlign: true, //will the pagination navigation be displayed on the center of a screen
+  page: 1, //starting page that will be showed with the very first load
+});
+
+let totalItems;
+const init = async total => {
+  if (total === undefined && !totalItems) {
+    const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
+    totalItems = tempData.data.page.totalElements;
+  }
+
+  if (total === undefined) {
+    total = totalItems;
+  }
+  console.log(total);
+  pagination.setTotalItems(total);
+  pagination.reset();
+};
+init();
 const createEventMarcup = async e => {
   try {
-    amountElChange();
+    // amountElChange();
     const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
     eventsArr = tempData.data._embedded.events;
     totalEl = tempData.data.page.totalElements;
-    if (!pagination) {
-      pagination = pagingOptions(totalEl);
-    }
     itemEventMarcup(eventsArr);
   } catch (err) {
     console.log(err);
@@ -125,19 +145,27 @@ const createEventMarcup = async e => {
 createEventMarcup();
 
 //created pagination obj
-function pagingOptions(numberOfEl) {
-  var pagination = new Pagination(document.getElementById('pagination2'), {
-    totalItems: numberOfEl, //set total items
-    itemsPerPage: amountEl, //set amount elements to display per page
-    visiblePages: 5, //quantity og pages that will be displayed on the screen
-    centerAlign: true, //will the pagination navigation be displayed on the center of a screen
-    page: 1, //starting page that will be showed with the very first load
-  });
-  return pagination;
-}
+// function pagingOptions(numberOfEl) {
+// var pagination = new Pagination(document.getElementById('pagination2'), {
+//   totalItems: numberOfEl, //set total items
+//   itemsPerPage: 30,//amountEl + 10, //set amount elements to display per page
+//   visiblePages: 15, //quantity og pages that will be displayed on the screen
+//   centerAlign: true, //will the pagination navigation be displayed on the center of a screen
+//   page: 1, //starting page that will be showed with the very first load
+// });
+// return pagination;
+// }
 const paging = document.getElementById('pagination2');
-paging.addEventListener('click', onPageNumberClick);
-paging.addEventListener('click', debounce(scrollIntoView, 500));
+// paging.addEventListener('click', onPageNumberClick);
+
+pagination.on('beforeMove', async e => {
+  page = e.page;
+  const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
+  eventsArr = tempData.data._embedded.events;
+  itemEventMarcup(eventsArr);
+});
+
+// paging.addEventListener('click', debounce(scrollIntoView, 500));
 // const modalCard = async idNum => {
 //   const tempData = await getIdApi(idNum);
 //   console.log(tempData);

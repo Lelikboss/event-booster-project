@@ -5,7 +5,8 @@ import modalTemplates from '../templates/modal.hbs';
 import countries from '../js/countries-list';
 
 export const itemEventMarcup = result => {
-  const markup = eventTemplates(result);
+    refs.eventsContainer.innerHTML = '';
+    const markup = eventTemplates(result);
     refs.eventMarcup.insertAdjacentHTML('beforeend', markup);
 };
 // export const listCountryMarcup = getAllCountriesNames()

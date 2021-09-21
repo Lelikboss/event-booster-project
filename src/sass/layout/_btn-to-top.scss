@@ -23,5 +23,6 @@
   &:hover,
   &:focus {
     box-shadow: 0 0 50px var(--primary-title-color);
+    transform: scale(1.5);
   }
 }
