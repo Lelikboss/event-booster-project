@@ -162,6 +162,13 @@
   color: var(--input-text-color);
   outline: none;
 
+  transition: box-shadow 250ms var(--cubic-bezier);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 10px var(--primary-title-color);
+  }
+
   &::-webkit-calendar-picker-indicator {
     opacity: 0;
   }
@@ -236,6 +243,7 @@ datalist {
 }
 
 datalist option {
+
   width: 270px;
   height: 40px;
   padding: 10px 30px;
