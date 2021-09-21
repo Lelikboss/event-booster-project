@@ -117,8 +117,6 @@ const createEventMarcup = async e => {
 createEventMarcup();
 
 const paging = document.getElementById('pagination2');
-
-
 const onCardClick = e => {
   if (e.target.dataset.id) {
     console.log(e.target.dataset.id);
@@ -134,22 +132,19 @@ const onCardClick = e => {
         },
       });
 
-pagination.on('beforeMove', async e => {
-  page = e.page;
-  const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
-  eventsArr = tempData.data._embedded.events;
-  itemEventMarcup(eventsArr);
-
-
-
-
-
+      instance.show();
+      //!
+      refs.btnToTop.classList.add('visually-hidden');
+    });
+  }
+};
+refs.eventsContainer.addEventListener('click', onCardClick);
 
 function paginationInit() {
   console.log('inside paginationInit');
   pagination = new Pagination(document.getElementById('pagination2'), {
     //totalItems: number, //set total items
-    itemsPerPage: 5,//amountEl + 10, //set amount elements to display per page
+    itemsPerPage: 5, //amountEl + 10, //set amount elements to display per page
     visiblePages: 5, //quantity og pages that will be displayed on the screen
     centerAlign: true, //will the pagination navigation be displayed on the center of a screen
     page: 1, //starting page that will be showed with the very first load
