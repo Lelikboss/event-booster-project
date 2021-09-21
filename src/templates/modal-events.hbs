@@ -7,7 +7,7 @@
     </button>
 
     <div class="modal__event-header">
-        <img src="{{images.1.url}}" alt="icon" class="modal__event__icon" />
+        <img src="{{images.1.url}}" alt="icon" class="modal__event-icon" />
     </div>
     <div class="modal__content-wrapper">
         <div class="modal__event-content-image">
@@ -58,13 +58,13 @@
                             {{#each priceRanges}}
                             <p class="modal__item-content">{{type}} {{min}}-{{max}} {{currency}}</p>
                             {{/each}}
-                            <a href="{{url}}" target="_bank" rel="noopener noreferer" class="modal__btn" data-action="buy-cheap">
+                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn" data-action="buy-cheap">
                                     BUY TICKETS
                             </a>
                         </li>
                         <li>
                             <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
-                            <a href="{{url}}" target="_bank" rel="noopener noreferer" class="modal__btn" data-action="buy-expensive">
+                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn" data-action="buy-expensive">
                                     BUY TICKETS
                             </a>
                         </li>
@@ -72,7 +72,7 @@
             </ul>
 
             <div class="modal__more-btn-container">
-                <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_bank" rel="noopener noreferer" class="modal__more-btn">MORE FROM THIS AUTHOR</a> 
+                <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer" class="modal__more-btn">MORE FROM THIS AUTHOR</a> 
             </div>
 
         </div>
