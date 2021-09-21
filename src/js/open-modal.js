@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-import { getEventApi, getIdApi } from './apiServices';
+import { getIdApi } from './apiServices';
 import template from '../templates/modal-events.hbs';
 import refs from './refs';
 
@@ -14,12 +14,13 @@ function openModal(e) {
             onShow: instance => {
               instance.element().querySelector('[data-action="modal-close"]').onclick = () => instance.close();
               window.addEventListener('keydown', (e) => {
+                console.log(e.code);
                 if (e.code === 'Escape') {
                   instance.close();
                 }
               });
             },
-            // onShow: instance => {  // странно так не работает
+            // onShow: instance => {  // странно, так не работает, если надо можно подключить throttle
             //   window.addEventListener('keydown', (e) => {
             //     if (e.code === 'Escape') {
             //       instance.close();
