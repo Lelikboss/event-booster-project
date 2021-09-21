@@ -150,8 +150,20 @@ const onCardClick = e => {
     console.log(idNum);
     getIdApi(idNum).then(res => {
       console.log(res.data._embedded.events[0]);
-      const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]));
+      // const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]));
+      // instance.show();
+      // const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]));
+      // instance.show();
+      //!
+      const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]), {
+        onShow: instance => {
+          instance.element().querySelector('[data-action=modal-close]').onclick = () =>
+            instance.close();
+        },
+      });
+
       instance.show();
+      //!
       refs.btnToTop.classList.add('visually-hidden');
     });
   }
