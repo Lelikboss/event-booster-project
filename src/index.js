@@ -1,4 +1,3 @@
-import './sass/main.scss';
 import { itemEventMarcup, listCountryMarcup, modalEventMarcup, customModal } from './js/marcup.js';
 import { getEventApi, getIdApi } from './js/apiServices.js';
 import './js/btnToTop';
@@ -17,6 +16,8 @@ import Pagination from './../node_modules/tui-pagination';
 import './../node_modules/tui-pagination/dist/tui-pagination.css';
 import modalTemplates from './templates/modal.hbs';
 import scrollIntoView from './js/scroll.js';
+import './sass/main.scss';
+
 function loadData() {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, 2000);
@@ -128,7 +129,7 @@ function pagingOptions(numberOfEl) {
   var pagination = new Pagination(document.getElementById('pagination2'), {
     totalItems: numberOfEl, //set total items
     itemsPerPage: amountEl, //set amount elements to display per page
-    visiblePages: 15, //quantity og pages that will be displayed on the screen
+    visiblePages: 5, //quantity og pages that will be displayed on the screen
     centerAlign: true, //will the pagination navigation be displayed on the center of a screen
     page: 1, //starting page that will be showed with the very first load
   });
