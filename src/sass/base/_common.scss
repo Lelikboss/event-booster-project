@@ -7,7 +7,9 @@ html {
 *::after {
   box-sizing: inherit;
 }
-
+.overflow--hidden {
+  overflow: hidden;
+}
 body {
   background-image: url('/images/background/bg-mobile-1x.png'),
     linear-gradient(to right, var(--text-color-in-modal) 0%, var(--text-color-in-modal) 100%);

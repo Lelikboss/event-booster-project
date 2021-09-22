@@ -5,24 +5,29 @@ import refs from './refs';
 
 refs.eventMarcup.addEventListener('click', openModal);
 function openModal(e) {
-    if (e.target.dataset.id) {
-        const idNum = e.target.dataset.id;
-    
-        getIdApi(idNum).then(res => {
-          const instance = basicLightbox.create(template(res), {
-            onShow: instance => {
-              instance.element().querySelector('[data-action="modal-close"]').onclick = () => instance.close();
-              window.addEventListener('keydown', (e) => {
-                console.log(e.code);
-                if (e.code === 'Escape') {
-                  instance.close();
-                }
-              });
+  refs.bodyEl.classList.toggle('overflow--hidden');
+  if (e.target.dataset.id) {
+    const idNum = e.target.dataset.id;
+
+    getIdApi(idNum).then(res => {
+      const instance = basicLightbox.create(template(res), {
+        onShow: instance => {
+          instance.element().querySelector('[data-action="modal-close"]').onclick = () => {
+            instance.close();
+            refs.bodyEl.classList.toggle('overflow--hidden');
+          };
+          window.addEventListener('keydown', e => {
+            console.log(e.code);
+            if (e.code === 'Escape') {
+              instance.close();
+              refs.bodyEl.classList.toggle('overflow--hidden');
             }
           });
+        },
+      });
 
-          instance.show();
-          refs.btnToTop.classList.add('visually-hidden');
-        })
-    }
+      instance.show();
+      refs.btnToTop.classList.add('visually-hidden');
+    });
+  }
 }

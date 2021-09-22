@@ -12,6 +12,8 @@
   }
 }
 .basicLightbox {
+  background: rgba(32, 13, 29, 0.6);
+  backdrop-filter: blur(3px);
   overflow-y: scroll;
   padding-top: 250px;
   padding-bottom: 10px;
@@ -38,6 +40,7 @@
   @media screen and (min-width: 768px) {
     max-width: 595px;
     padding: 30px 20px 105px 55px;
+    border-radius: 300px 0px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 930px;
