@@ -4,12 +4,9 @@ import template from '../templates/modal-events.hbs';
 import refs from './refs';
 
 refs.eventMarcup.addEventListener('click', openModal);
-
 function openModal(e) {
-    const eventsMetaTitle = document.querySelector('.events__meta-title');
-
-    if (e.eventPhase === 3) {
-        const idNum = eventsMetaTitle.dataset.id;
+    if (e.target.dataset.id) {
+        const idNum = e.target.dataset.id;
     
         getIdApi(idNum).then(res => {
           const instance = basicLightbox.create(template(res), {
