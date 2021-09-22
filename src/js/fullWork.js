@@ -33,16 +33,6 @@ let countryCode = ' ';
 let page = 0;
 let keyword = ' ';
 let amountEl = 20;
-var pagination;
-//function that draws backend data after retrieving it
-// function onPageNumberClick(e) {
-//   e.preventDefault();
-//   refs.eventsContainer.innerHTML = '';
-//   page = Number.parseInt(e.target.textContent);
-// createEventMarcup();
-// pagination.movePageTo(page);
-// }
-// search by country name
 
 const checkCountry = e => {
   e.preventDefault();
@@ -75,16 +65,13 @@ const searchEvent = e => {
 };
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
 refs.simpleEl.style.position = 'absolute';
-// defines the quantity of elements on a page depending on a viewport
 refs.dataCountryList.style.position = 'absolute';
 
 // work with API
 export const createEventMarcup = async e => {
   try {
     await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
-      if (!pagination) {
-        pagination = paginationInit();
-      }
+      paginationInit();
       itemEventMarcup(result.data._embedded.events);
     });
   } catch (err) {
@@ -111,9 +98,10 @@ export const createEventMarcup = async e => {
 };
 createEventMarcup();
 
+//Pagination initialization
 function paginationInit() {
   console.log('inside paginationInit');
-  pagination = new Pagination(document.getElementById('pagination'), {
+  var pagination = new Pagination(document.getElementById('pagination'), {
     // totalItems: some number, //set total items
     itemsPerPage: 20, //amountEl, //set amount elements to display per page
     visiblePages: 5, //quantity of pages that will be displayed on the screen
@@ -122,15 +110,9 @@ function paginationInit() {
   });
 
   pagination.on('beforeMove', async e => {
-    pagination.page = e.page - 1;
+    // pagination.page = e.page - 1;
     page = e.page - 1;
-    console.log('pagination.page :>> ', pagination);
-    console.log('e.page :>> ', e.page);
-    console.log('page :>> ', page);
     await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
-      if (!pagination) {
-        pagination = paginationInit();
-      }
       itemEventMarcup(result.data._embedded.events);
     });
   });
@@ -145,10 +127,8 @@ function paginationInit() {
     if (total === undefined) {
       total = totalItems;
     }
-    console.log(total);
     pagination.setTotalItems(total);
     pagination.reset();
   };
   init();
-  return pagination;
 }
