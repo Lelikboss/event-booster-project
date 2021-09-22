@@ -33,6 +33,7 @@ let countryCode = ' ';
 let page = 0;
 let keyword = ' ';
 let amountEl = 20;
+
 var pagination;
 //function that draws backend data after retrieving it
 // function onPageNumberClick(e) {
@@ -49,6 +50,7 @@ const checkCountry = e => {
   console.log(e.target.value);
   let countryName = e.target.value;
   refs.eventsContainer.innerHTML = '';
+  page = 0;
   countryCode = getCode(countryName);
   console.log(countryCode);
   refs.datalist.style.display = 'none';
@@ -57,7 +59,9 @@ const checkCountry = e => {
 
   if (countryName === 'All countries') {
     countryCode = '';
+    page = 0;
   }
+  paginationInit();
   createEventMarcup();
 };
 refs.dataCountryList.addEventListener('click', debounce(checkCountry, 1000));
@@ -70,7 +74,9 @@ const searchEvent = e => {
   refs.eventsContainer.innerHTML = '';
   const joinInputValue = searchEv.split(' ').join('-');
   keyword = joinInputValue;
+  page = 0;
   createEventMarcup();
+  paginationInit();
   console.log(joinInputValue);
 };
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
@@ -115,7 +121,7 @@ function paginationInit() {
   console.log('inside paginationInit');
   pagination = new Pagination(document.getElementById('pagination'), {
     // totalItems: some number, //set total items
-    itemsPerPage: 20, //amountEl, //set amount elements to display per page
+    itemsPerPage: amountEl, //amountEl, //set amount elements to display per page
     visiblePages: 5, //quantity of pages that will be displayed on the screen
     centerAlign: true, //will the pagination navigation be displayed on the center of a screen
     page: 1, //starting page that will be showed with the very first load
@@ -132,6 +138,7 @@ function paginationInit() {
         pagination = paginationInit();
       }
       itemEventMarcup(result.data._embedded.events);
+      scrollIntoView();
     });
   });
 
