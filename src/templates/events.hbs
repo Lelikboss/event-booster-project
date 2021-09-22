@@ -13,8 +13,9 @@
         <h2 data-id='{{id}}' class="events__meta-title">{{name}}</h2>
         <h3 class ="events__meta-date">{{dates.start.localDate}}</h3>
     {{#if _embedded.venues.0.name}} 
-        <span class="events__meta-place" id='{{id}}'>
-          {{_embedded.venues.0.name}}</span>
+        <p class="events__meta-place" id='{{id}}'>
+          {{_embedded.venues.0.name}}</p> 
+          {{!-- span --}}
     {{/if}}
     </div>
 </li>
