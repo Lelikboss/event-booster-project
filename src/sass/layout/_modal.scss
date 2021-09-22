@@ -226,13 +226,13 @@
 }
 
 .modal__item-buttons {
-  margin: 0;
-  padding: 0;
-  // display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
+  // margin: 0;
+  // padding: 0;
+  // // display: flex;
+  // // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // list-style: none;
 }
 
 .modal__btn {
@@ -240,12 +240,25 @@
   cursor: pointer;
   width: 145px;
   height: 40px;
-  margin-top: 10px;
+  // margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10 19;
+  padding: 10px 19px;
   background-color: var(--modal-accent-color);
   border-radius: 5px;
+  // text-align: center;
+  // justify-content: center;
+  // align-items: center;
+  // display: inline-block;
+  @media screen and (min-width: 767px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  &:hover,
+  &:focus {
+    background-color: #2e009a;
+  }
 }
 .modal__more-btn-container {
   // text-align: center;
@@ -268,7 +281,7 @@
   cursor: pointer;
   display: inline-block;
   margin: 0;
-  margin-top: 45px;
+  margin-top: 15px;
   padding: 10px 3px;
   border: 1px solid var(--modal-accent-color);
   border-radius: 5px;
