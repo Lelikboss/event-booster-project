@@ -25,6 +25,7 @@
   //   height: 90%;
   // }
 }
+
 .modal__window {
   padding: 75px 20px 105px 20px;
   max-width: 270px;
@@ -43,6 +44,7 @@
     padding: 60px 30px;
   }
 }
+
 .modal__close-btn {
   @media screen and (max-width: 768px) {
     top: 25px;
@@ -81,16 +83,18 @@
   }
   cursor: pointer;
 }
+
 .modal__close-icon {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 0;
+  right: 0;
   width: 17px;
   height: 17px;
   vertical-align: middle;
   fill: var(--modal-accent-color);
   cursor: pointer;
 }
+
 .modal__event-header {
   display: flex;
   width: 102px;
@@ -110,15 +114,18 @@
     height: 130px;
   }
 }
+
 .modal__event-icon {
   object-fit: cover;
 }
+
 .modal__content-wrapper {
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
   }
 }
+
 .modal__event-content-image {
   @media screen and (max-width: 767px) {
     display: none;
@@ -133,8 +140,7 @@
     width: 360px;
   }
 }
-.modal__event-poster {
-}
+
 .modal__event-content {
   margin-top: 20px;
 
@@ -145,15 +151,18 @@
     width: 450px;
   }
 }
+
 .modal__event-container {
   margin: 0;
   padding: 0;
   text-align: center;
   list-style: none;
+
   @media screen and (min-width: 768px) {
     text-align: start;
   }
 }
+
 .modal__item-info {
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -164,6 +173,7 @@
     }
   }
 }
+
 .modal__item-title {
   margin: 0 0 5px 0;
   font-family: var(--primary-font-family);
@@ -174,6 +184,7 @@
   text-transform: uppercase;
   color: var(--primary-title-color);
 }
+
 .modal__item-content {
   margin: 0;
   color: var(--text-color-in-modal);
@@ -192,6 +203,7 @@
     line-height: 1.22;
   }
 }
+
 .modal__item-content--icon {
   display: flex;
   align-items: center;
@@ -205,15 +217,16 @@
     background-image: url(../images/svg/ticket.svg);
   }
 }
+
 .modal__item-content--capitalize {
   display: inline-block;
   text-transform: capitalize;
 }
+
 .modal__item-content--bold {
   font-weight: var(--modal-btn-font-weight);
 }
-.modal__item-buttons {
-}
+
 .modal__btn {
   display: inline-block;
   padding: 10px 20px;
