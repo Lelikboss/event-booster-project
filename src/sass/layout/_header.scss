@@ -167,6 +167,7 @@
   &:hover,
   &:focus {
     box-shadow: 0 0 10px var(--primary-title-color);
+    animation-play-state: paused;
   }
 
   &::-webkit-calendar-picker-indicator {
@@ -182,6 +183,20 @@
   &:hover::placeholder,
   &:focus::placeholder {
     color: var(--primary-title-color);
+    animation-play-state: paused;
+  }
+  animation: shadow infinite 4000ms;
+}
+
+@keyframes shadow {
+  0% {
+    box-shadow: 0px 0px 10px 19px rgba(134, 92, 139, 0.57) inset;
+  }
+  50% {
+    box-shadow: 0px 0px 10px -2px rgba(72, 214, 28, 0.89) inset;
+  }
+  100% {
+    box-shadow: 0px 0px 10px 19px rgba(134, 92, 139, 0.57) inset;
   }
 }
 
@@ -243,7 +258,6 @@ datalist {
 }
 
 datalist option {
-
   width: 270px;
   height: 40px;
   padding: 10px 30px;
