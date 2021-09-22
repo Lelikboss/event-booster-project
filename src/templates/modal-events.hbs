@@ -6,20 +6,22 @@
         </svg>
     </button>
 
-    <div class="modal__event-header">
-        <img src="{{images.1.url}}" alt="icon" class="modal__event-icon" />
+    <div class="centered">
+        <div class="modal__event-header">
+            <img src="{{images.1.url}}" alt="icon" class="modal__event-icon" />
+        </div>
     </div>
     <div class="modal__content-wrapper">
         <div class="modal__event-content-image">
             <picture>
                 <source srcset="
-                {{images.3.url}} 3x
+                {{images.4.url}} 3x
                 " media="(min-width: 768px)">
                 <source srcset="
-                {{images.4.url}} 3x
+                {{images.7.url}} 3x
                 " media="(min-width: 1280px)">
             </picture>
-            <img src="{{images.3.url}}" alt="icon" class="modal__event-poster" />
+            <img src="{{images.2.url}}" alt="icon" class="modal__event-poster" />
         </div>
 
         <div class="modal__event-content">
@@ -27,7 +29,7 @@
                 <li class="modal__item-info">
                     <h2 class="modal__item-title">INFO</h2>
                     {{#if info}}
-                    <p class="modal__item-content">{{info}}</p>
+                    <p class="modal__item-content modal__item-content--ellipsis">{{info}}</p>
                     {{/if}}
 
                     {{#unless info}}
@@ -60,26 +62,44 @@
                 </li>
                 <li class="modal__item-info">
                     <h2 class="modal__item-title">PRICES</h2>
-                    <svg class="modal__ticket-icon">
+                    {{!-- <svg class="modal__ticket-icon">
                         <use href="../images/svg/ticket.svg"></use>
-                    </svg>
+                    </svg> --}}
+                    {{#each priceRanges}}
+                    <div class="centered--left">
+                        <p class="modal__item-content modal__item-content--icon">
+                        <span class="modal__item-content--capitalize">{{type}}</span>&nbsp;
+                        <span class="modal__item-content--bold">{{min}}-{{max}}</span>&nbsp;
+                        {{currency}}
+                        </p>
+                    </div>
+                    {{/each}}
+                    <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--bottom-top link" data-action="buy-cheap">
+                         BUY TICKETS
+                    </a>
 
+                    <div class="centered--left">
+                        <p class="modal__item-content modal__item-content--icon">VIP {{eventHighPricesContent}} {{currency}}</p>
+                    </div>
+                    <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--top link" data-action="buy-expensive">
+                        BUY TICKETS
+                    </a>
                 </li>
                     {{!-- <ul class="modal__item-buttons"> --}}
-                        <li class="modal__item-info">
+                        {{!-- <li class="modal__item-info">
                             {{#each priceRanges}}
                             <p class="modal__item-content">{{type}} {{min}}-{{max}} {{currency}}</p>
                             {{/each}}
                             <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-cheap">
                                     BUY TICKETS
                             </a>
-                        </li>
-                        <li class="modal__item-info">
+                        </li> --}}
+                        {{!-- <li class="modal__item-info">
                             <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
                             <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-expensive">
                                     BUY TICKETS
                             </a>
-                        </li>
+                        </li> --}}
                     {{!-- </ul> --}}
             </ul>
 
@@ -89,7 +109,7 @@
 
         </div>
     </div>
-        <div class="modal__more-btn-container"></div>
+        <div class="modal__more-btn-container">
             <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer"
                 class="modal__more-btn link">MORE FROM THIS AUTHOR</a>
         </div>
