@@ -81,16 +81,13 @@ refs.simpleEl.style.position = 'absolute';
 refs.dataCountryList.style.position = 'absolute';
 
 // work with API
-let totalEl = 0;
-var eventsArr = [];
 const createEventMarcup = async e => {
   try {
-    // amountElChange();
-    const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
-    eventsArr = tempData.data._embedded.events;
-    totalEl = tempData.data.page.totalElements;
-    pagination = paginationInit();
-    itemEventMarcup(eventsArr);
+    await getEventApi({ countryCode, page, amountEl, keyword })
+    .then(result => {
+      pagination = paginationInit();
+      itemEventMarcup(result.data._embedded.events);
+    })
   } catch (err) {
     console.log(err);
     notice({
@@ -114,8 +111,6 @@ const createEventMarcup = async e => {
   refs.inputCountryEl.addEventListener('click', onInputClick);
 };
 createEventMarcup();
-
-const paging = document.getElementById('pagination2');
 
 const onCardClick = e => {
   if (e.target.dataset.id) {
@@ -143,19 +138,25 @@ refs.eventsContainer.addEventListener('click', onCardClick);
 
 function paginationInit() {
   console.log('inside paginationInit');
-  pagination = new Pagination(document.getElementById('pagination2'), {
-    //totalItems: number, //set total items
-    itemsPerPage: 5,//amountEl + 10, //set amount elements to display per page
-    visiblePages: 5, //quantity og pages that will be displayed on the screen
+  pagination = new Pagination(document.getElementById('pagination'), {
+    // totalItems: some number, //set total items
+    itemsPerPage: 20,//amountEl, //set amount elements to display per page
+    visiblePages: 5, //quantity of pages that will be displayed on the screen
     centerAlign: true, //will the pagination navigation be displayed on the center of a screen
     page: 1, //starting page that will be showed with the very first load
   });
 
   pagination.on('beforeMove', async e => {
-    pagination.page = e.page;
-    const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
-    eventsArr = tempData.data._embedded.events;
-    itemEventMarcup(eventsArr);
+    pagination.page = e.page - 1;
+    page = e.page - 1;
+    console.log('pagination.page :>> ', pagination);
+    console.log('e.page :>> ', e.page);
+    console.log('page :>> ', page);
+    await getEventApi({ countryCode, page, amountEl, keyword })
+    .then(result => {
+      pagination = paginationInit();
+      itemEventMarcup(result.data._embedded.events);
+    })
   });
 
   let totalItems;
