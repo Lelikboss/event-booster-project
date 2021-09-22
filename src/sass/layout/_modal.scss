@@ -69,6 +69,7 @@
   margin: 0;
   padding: 0;
   background-color: transparent;
+
   width: 17px;
   height: 17px;
   top: 25px;
@@ -76,6 +77,15 @@
   background-image: url('/images/svg/close-modal.svg');
   background-repeat: no-repeat;
   background-size: contain;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-title-color);
+    box-shadow: 0 0 10px var(--primary-title-color);
+    border-radius: 50px;
+    width: 23px;
+    height: 23px;
+  }
 }
 
 .modal__close-icon {
