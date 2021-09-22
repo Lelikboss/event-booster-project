@@ -119,9 +119,14 @@
 }
 
 .events__meta-place {
-  margin-right: auto;
-  margin-left: auto;
+  // margin-right: auto;
+  // margin-left: auto;
+  margin: 0 auto;
   text-align: center;
+
+  overflow-wrap: break-word;
+  max-width: 100px;
+
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
@@ -130,6 +135,7 @@
   @media (min-width: 768px) {
     font-size: 14px;
     line-height: 17px;
+    max-width: 130px;
   }
 }
 
