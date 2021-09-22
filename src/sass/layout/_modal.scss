@@ -236,6 +236,7 @@
 }
 
 .modal__btn {
+  color: #ffffff;
   cursor: pointer;
   width: 145px;
   height: 40px;
@@ -247,6 +248,11 @@
   border-radius: 5px;
 }
 .modal__more-btn-container {
+  // text-align: center;
+  // justify-content: center;
+  // align-items: center;
+  // margin-top: 45px;
+  // display: inline-block;
 }
 
 .modal__more-btn {
@@ -256,9 +262,11 @@
   width: 255px;
   height: 40px;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 
   cursor: pointer;
-  display: block;
+  display: inline-block;
   margin: 0;
   margin-top: 45px;
   padding: 10px 3px;

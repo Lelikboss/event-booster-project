@@ -70,13 +70,13 @@
                             {{#each priceRanges}}
                             <p class="modal__item-content">{{type}} {{min}}-{{max}} {{currency}}</p>
                             {{/each}}
-                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn" data-action="buy-cheap">
+                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-cheap">
                                     BUY TICKETS
                             </a>
                         </li>
                         <li>
                             <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
-                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn" data-action="buy-expensive">
+                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-expensive">
                                     BUY TICKETS
                             </a>
                         </li>
@@ -91,7 +91,7 @@
     </div>
         <div class="modal__more-btn-container"></div>
             <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer"
-                class="modal__more-btn">MORE FROM THIS AUTHOR</a>
+                class="modal__more-btn link">MORE FROM THIS AUTHOR</a>
         </div>
    
 </div>
