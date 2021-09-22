@@ -26,7 +26,13 @@
             <ul class="modal__event-container">
                 <li class="modal__item-info">
                     <h2 class="modal__item-title">INFO</h2>
+                    {{#if info}}
                     <p class="modal__item-content">{{info}}</p>
+                    {{/if}}
+
+                    {{#unless info}}
+                    <p class="modal__item-content">No event information available.</p>
+                    {{/unless}}
                 </li>
                 <li class="modal__item-info">
                     <h2 class="modal__item-title">WHEN</h2>
@@ -39,7 +45,13 @@
                 <li class="modal__item-info">
                     <h2 class="modal__item-title">WHERE</h2>
                     {{#each _embedded.venues}}
+                    {{#if name}}
                     <p class="modal__item-content">{{name}}</p>
+                    {{/if}}
+
+                    {{#unless name}}
+                    <p class="modal__item-content">Information about the venue is available on the official Ticketmaster website.</p>
+                    {{/unless}}
                     {{/each}}
                 </li>
                 <li class="modal__item-info">
