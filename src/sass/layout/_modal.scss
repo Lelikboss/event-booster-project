@@ -46,6 +46,7 @@
   right: 25px;
   margin: 0;
   padding: 0;
+  background-color: transparent;
   width: 17px;
   height: 17px;
   border: 0;
@@ -53,6 +54,15 @@
   background-image: url('/images/svg/close-modal.svg');
   background-repeat: no-repeat;
   background-size: contain;
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-title-color);
+    box-shadow: 0 0 10px var(--primary-title-color);
+    border-radius: 50px;
+    width: 23px;
+    height: 23px;
+  }
   cursor: pointer;
 }
 .modal__close-icon {
