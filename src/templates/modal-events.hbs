@@ -65,8 +65,8 @@
                     </svg>
 
                 </li>
-                    <ul class="modal__item-buttons">
-                        <li>
+                    {{!-- <ul class="modal__item-buttons"> --}}
+                        <li class="modal__item-info">
                             {{#each priceRanges}}
                             <p class="modal__item-content">{{type}} {{min}}-{{max}} {{currency}}</p>
                             {{/each}}
@@ -74,13 +74,13 @@
                                     BUY TICKETS
                             </a>
                         </li>
-                        <li>
+                        <li class="modal__item-info">
                             <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
                             <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-expensive">
                                     BUY TICKETS
                             </a>
                         </li>
-                    </ul>
+                    {{!-- </ul> --}}
             </ul>
 
             {{!-- <div class="modal__more-btn-container">
