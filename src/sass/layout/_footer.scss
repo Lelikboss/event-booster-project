@@ -56,16 +56,19 @@
 }
 
 .footer__button {
-  border: none;
+  border: #0e0e0e;
+  border-radius: 8px;
   background-color: #0e0e0e;
   cursor: pointer;
   padding: 0;
-  margin-left: 5px;
+  margin-left: 10px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px var(--primary-title-color);
 
   &:hover,
   &:focus {
-    color: red;
+    color: #0e0e0e;
+    background-color: var(--primary-title-color);
   }
 }
 
@@ -137,8 +140,9 @@ body.show-modal .footer__modal {
   width: 30px;
   height: 30px;
   border: 2px solid rgb(209, 197, 197);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+  //   0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 8px var(--primary-title-color);
   border-radius: 50%;
   background-color: rgb(209, 197, 197);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -154,6 +158,7 @@ body.show-modal .footer__modal {
   justify-content: center;
   margin: 0;
   margin-bottom: 20px;
+  color: #8046bf;
 }
 
 .command__list {
@@ -192,8 +197,8 @@ img {
 }
 .card {
   background-color: #fff2fd;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px var(--primary-title-color), 0px 1px 1px var(--primary-title-color),
+    0px 2px 8px var(--primary-title-color);
   border-radius: 16px 0px 16px 0px;
 }
 .command__content {
