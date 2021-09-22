@@ -63,6 +63,9 @@
 }
 
 .modal__close-btn {
+  @media screen and (max-width: 768px) {
+    top: 25px;
+  }
   cursor: pointer;
   position: absolute;
   border: 0;
@@ -72,11 +75,14 @@
 
   width: 17px;
   height: 17px;
-  top: 25px;
+  // top: 25px;
   right: 25px;
   background-image: url('/images/svg/close-modal.svg');
   background-repeat: no-repeat;
   background-size: contain;
+  @media screen and (min-width: 1280px) {
+    right: 50px;
+  }
 
   &:hover,
   &:focus {
