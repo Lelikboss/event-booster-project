@@ -48,6 +48,7 @@ import './sass/main.scss';
 // // }
 // // search by country name
 
+<<<<<<< Updated upstream
 // const checkCountry = e => {
 //   e.preventDefault();
 //   console.log(e.target.value);
