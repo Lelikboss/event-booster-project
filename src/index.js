@@ -84,11 +84,12 @@ refs.dataCountryList.style.position = 'absolute';
 // work with API
 const createEventMarcup = async e => {
   try {
-    await getEventApi({ countryCode, page, amountEl, keyword })
-    .then(result => {
-      pagination = paginationInit();
+    await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
+      if (!pagination) {
+        pagination = paginationInit();
+      }
       itemEventMarcup(result.data._embedded.events);
-    })
+    });
   } catch (err) {
     console.log(err);
     notice({
@@ -117,7 +118,7 @@ function paginationInit() {
   console.log('inside paginationInit');
   pagination = new Pagination(document.getElementById('pagination'), {
     // totalItems: some number, //set total items
-    itemsPerPage: 20,//amountEl, //set amount elements to display per page
+    itemsPerPage: 20, //amountEl, //set amount elements to display per page
     visiblePages: 5, //quantity of pages that will be displayed on the screen
     centerAlign: true, //will the pagination navigation be displayed on the center of a screen
     page: 1, //starting page that will be showed with the very first load
@@ -129,11 +130,12 @@ function paginationInit() {
     console.log('pagination.page :>> ', pagination);
     console.log('e.page :>> ', e.page);
     console.log('page :>> ', page);
-    await getEventApi({ countryCode, page, amountEl, keyword })
-    .then(result => {
-      pagination = paginationInit();
+    await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
+      if (!pagination) {
+        pagination = paginationInit();
+      }
       itemEventMarcup(result.data._embedded.events);
-    })
+    });
   });
 
   let totalItems;
