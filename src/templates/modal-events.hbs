@@ -83,11 +83,16 @@
                     </ul>
             </ul>
 
-            <div class="modal__more-btn-container">
+            {{!-- <div class="modal__more-btn-container">
                 <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer" class="modal__more-btn">MORE FROM THIS AUTHOR</a> 
-            </div>
+            </div> --}}
 
         </div>
     </div>
+        <div class="modal__more-btn-container"></div>
+            <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer"
+                class="modal__more-btn">MORE FROM THIS AUTHOR</a>
+        </div>
+   
 </div>
 {{/each}}
