@@ -53,6 +53,7 @@
   flex-basis: calc((100% - 14px * var(--grid-item)) / var(--grid-item));
   margin-left: 14px;
   margin-top: 39px;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     flex-basis: calc((100% - 30px * var(--grid-item)) / var(--grid-item));

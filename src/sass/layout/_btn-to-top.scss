@@ -9,6 +9,8 @@
   z-index: 100;
   opacity: 0.7;
 
+  transition: box-shadow 250ms var(--cubic-bezier);
+
   @media screen and (min-width: 768px) {
     right: 25px;
     padding: 0px;

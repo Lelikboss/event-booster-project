@@ -16,6 +16,7 @@ import Pagination from './../node_modules/tui-pagination';
 import './../node_modules/tui-pagination/dist/tui-pagination.css';
 import modalTemplates from './templates/modal.hbs';
 import scrollIntoView from './js/scroll.js';
+import './js/open-modal';
 import './sass/main.scss';
 
 function loadData() {
@@ -111,30 +112,6 @@ const createEventMarcup = async e => {
   refs.inputCountryEl.addEventListener('click', onInputClick);
 };
 createEventMarcup();
-
-const onCardClick = e => {
-  if (e.target.dataset.id) {
-    console.log(e.target.dataset.id);
-    idNum = e.target.dataset.id;
-
-    console.log(idNum);
-    getIdApi(idNum).then(res => {
-      console.log(res.data._embedded.events[0]);
-      const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]), {
-        onShow: instance => {
-          instance.element().querySelector('[data-action=modal-close]').onclick = () =>
-            instance.close();
-        },
-      });
-
-      instance.show();
-      //!
-      refs.btnToTop.classList.add('visually-hidden');
-    });
-  }
-};
-refs.eventsContainer.addEventListener('click', onCardClick);
-
 
 function paginationInit() {
   console.log('inside paginationInit');
