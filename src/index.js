@@ -48,7 +48,6 @@ import './sass/main.scss';
 // // }
 // // search by country name
 
-<<<<<<< Updated upstream
 // const checkCountry = e => {
 //   e.preventDefault();
 //   console.log(e.target.value);
@@ -111,75 +110,6 @@ import './sass/main.scss';
 //       console.log('no');
 //     }
 //   };
-=======
-let countryCode = ' ';
-let page = 0;
-let keyword = ' ';
-let amountEl = 20;
-var pagination;
-
-const checkCountry = e => {
-  e.preventDefault();
-  console.log(e.target.value);
-  let countryName = e.target.value;
-  refs.eventsContainer.innerHTML = '';
-  countryCode = getCode(countryName);
-  console.log(countryCode);
-  refs.datalist.style.display = 'none';
-  refs.inputCountryEl.classList.add('change-bottom-border');
-  refs.inputCountryEl.value = countryName;
-
-  if (countryName === 'All countries') {
-    countryCode = '';
-  }
-  createEventMarcup();
-};
-refs.dataCountryList.addEventListener('click', debounce(checkCountry, 1000));
-refs.dataCountryList.insertAdjacentHTML('beforeend', listCountryMarcup);
-// search by event
-new SimpleBar(refs.simpleEl, { autoHide: false });
-const searchEvent = e => {
-  e.preventDefault();
-  let searchEv = e.target.value;
-  refs.eventsContainer.innerHTML = '';
-  const joinInputValue = searchEv.split(' ').join('-');
-  keyword = joinInputValue;
-  createEventMarcup();
-  console.log(joinInputValue);
-};
-refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
-refs.simpleEl.style.position = 'absolute';
-refs.dataCountryList.style.position = 'absolute';
-
-// work with API
-const createEventMarcup = async e => {
-  try {
-    await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
-      // if (!pagination) {
-        pagination = paginationInit();
-      // }
-      itemEventMarcup(result.data._embedded.events);
-    });
-  } catch (err) {
-    console.log(err);
-    notice({
-      text: 'Sorry, there are no events for your query',
-      hide: true,
-      delay: 2000,
-      styling: 'custom',
-    });
-  }
-  // changes of input styles for country search
-  const onInputClick = e => {
-    refs.datalist.style.display = 'block';
-    refs.inputCountryEl.classList.remove('change-bottom-border');
-    if (!e.target.list) {
-      refs.inputCountryEl.classList.add('change-top-border');
-    } else {
-      console.log('no');
-    }
-  };
->>>>>>> Stashed changes
 
 //   refs.inputCountryEl.addEventListener('click', onInputClick);
 // };
@@ -195,7 +125,6 @@ const createEventMarcup = async e => {
 //     page: 1, //starting page that will be showed with the very first load
 //   });
 
-<<<<<<< Updated upstream
 //   pagination.on('beforeMove', async e => {
 //     pagination.page = e.page - 1;
 //     page = e.page - 1;
@@ -209,21 +138,6 @@ const createEventMarcup = async e => {
 //       itemEventMarcup(result.data._embedded.events);
 //     });
 //   });
-=======
-  pagination.on('beforeMove', async e => {
-    // pagination.page = e.page - 1;
-    page = e.page - 1;
-    console.log('pagination.page :>> ', pagination);
-    console.log('e.page :>> ', e.page);
-    console.log('page :>> ', page);
-    await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
-      // if (!pagination) {
-      //   pagination = paginationInit();
-      // }
-      itemEventMarcup(result.data._embedded.events);
-    });
-  });
->>>>>>> Stashed changes
 
 //   let totalItems;
 //   const init = async total => {
