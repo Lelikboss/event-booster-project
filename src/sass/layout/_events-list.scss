@@ -17,6 +17,7 @@
 }
 
 .events__el {
+  transition: box-shadow linear 250ms, border-radius linear 250ms;
   --grid-item: 2;
   display: block;
   width: 128px;
@@ -54,12 +55,12 @@
 .events__el:hover {
   border-radius: 45px 0;
   box-shadow: 0 0 10px #dc56c5, 0 0 20px #dc56c5, 0 0 80px #dc56c5;
-  transition-delay: 125ms;
 }
-
+.events__meta-title {
+  transition: color linear 250ms;
+}
 .events__el:hover .events__meta-title {
   color: white;
-  transition-delay: 125ms;
 }
 
 .events__el-image > img {

@@ -1,4 +1,4 @@
-import { itemEventMarcup, listCountryMarcup, modalEventMarcup, customModal } from './js/marcup.js';
+import { itemEventMarcup, listCountryMarcup, modalEventMarcup } from './js/marcup.js';
 import { getEventApi, getIdApi } from './js/apiServices.js';
 import './js/btnToTop';
 import './js/countryList';
@@ -14,7 +14,6 @@ import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import refs from './js/refs';
 import Pagination from './../node_modules/tui-pagination';
 import './../node_modules/tui-pagination/dist/tui-pagination.css';
-import modalTemplates from './templates/modal.hbs';
 import scrollIntoView from './js/scroll.js';
 import './js/open-modal';
 import './sass/main.scss';
@@ -30,7 +29,6 @@ loadData().then(() => {
   preloaderEl.classList.add('hidden');
   preloaderEl.classList.remove('visible');
 });
-let idNum = '';
 
 let countryCode = ' ';
 let page = 0;
