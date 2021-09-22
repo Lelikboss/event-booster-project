@@ -6,8 +6,10 @@ import refs from './refs';
 refs.eventMarcup.addEventListener('click', openModal);
 
 function openModal(e) {
-    if (e.target.dataset.id) {
-        const idNum = e.target.dataset.id;
+    const eventsMetaTitle = document.querySelector('.events__meta-title');
+
+    if (e.eventPhase === 3) {
+        const idNum = eventsMetaTitle.dataset.id;
     
         getIdApi(idNum).then(res => {
           const instance = basicLightbox.create(template(res), {
@@ -19,14 +21,7 @@ function openModal(e) {
                   instance.close();
                 }
               });
-            },
-            // onShow: instance => {  // странно, так не работает, если надо можно подключить throttle
-            //   window.addEventListener('keydown', (e) => {
-            //     if (e.code === 'Escape') {
-            //       instance.close();
-            //     }
-            //   })
-            // }
+            }
           });
 
           instance.show();

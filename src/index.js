@@ -117,28 +117,28 @@ const createEventMarcup = async e => {
 createEventMarcup();
 
 const paging = document.getElementById('pagination2');
-const onCardClick = e => {
-  if (e.target.dataset.id) {
-    console.log(e.target.dataset.id);
-    idNum = e.target.dataset.id;
+// const onCardClick = e => {
+//   if (e.target.dataset.id) {
+//     console.log(e.target.dataset.id);
+//     idNum = e.target.dataset.id;
 
-    console.log(idNum);
-    getIdApi(idNum).then(res => {
-      console.log(res.data._embedded.events[0]);
-      const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]), {
-        onShow: instance => {
-          instance.element().querySelector('[data-action=modal-close]').onclick = () =>
-            instance.close();
-        },
-      });
+//     console.log(idNum);
+//     getIdApi(idNum).then(res => {
+//       console.log(res.data._embedded.events[0]);
+//       const instance = basicLightbox.create(modalTemplates(res.data._embedded.events[0]), {
+//         onShow: instance => {
+//           instance.element().querySelector('[data-action=modal-close]').onclick = () =>
+//             instance.close();
+//         },
+//       });
 
-      instance.show();
-      //!
-      refs.btnToTop.classList.add('visually-hidden');
-    });
-  }
-};
-refs.eventsContainer.addEventListener('click', onCardClick);
+//       instance.show();
+//       //!
+//       refs.btnToTop.classList.add('visually-hidden');
+//     });
+//   }
+// };
+// refs.eventsContainer.addEventListener('click', onCardClick);
 
 function paginationInit() {
   console.log('inside paginationInit');
