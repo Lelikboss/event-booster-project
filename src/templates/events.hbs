@@ -1,19 +1,19 @@
 {{#each this}}
 <li class="events__el grid-item" data-id='{{id}}'>
-    <div class="events__el-square"></div>
-    <picture class="events__el-image">
+    <div class="events__el-square" data-id="{{id}}"></div>
+    <picture class="events__el-image" data-id="{{id}}">
         <source srcset="{{images.7.url}}" media="(max-width: 767.98px)">
         <source srcset="{{images.7.url}}" media="(max-width: 1279.98px)">
-        <img src="{{images.7.url}}" alt='{{name}}'>
+        <img src="{{images.7.url}}" alt='{{name}}' data-id="{{id}}">
     </picture>
     {{!-- <div class="events__el-image">
     <img alt='{{name}}' src='{{images.7.url}}'/>
     </div> --}}
-    <div class="events__meta">
-        <h2 data-id='{{id}}' class="events__meta-title">{{name}}</h2>
-        <h3 class ="events__meta-date">{{dates.start.localDate}}</h3>
+    <div class="events__meta" data-id="{{id}}">
+        <h2 class="events__meta-title" data-id="{{id}}">{{name}}</h2>
+        <h3 class ="events__meta-date" data-id="{{id}}">{{dates.start.localDate}}</h3>
     {{#if _embedded.venues.0.name}} 
-        <p class="events__meta-place" id='{{id}}'>
+        <p class="events__meta-place" data-id="{{id}}">
           {{_embedded.venues.0.name}}</p> 
           {{!-- span --}}
     {{/if}}
