@@ -74,6 +74,11 @@ refs.dataCountryList.style.position = 'absolute';
 
 // work with API
 export const createEventMarcup = async e => {
+  if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
+    amountEl = 21;
+  } else {
+    amountEl = 20;
+  }
   try {
     await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
       paginationInit();
