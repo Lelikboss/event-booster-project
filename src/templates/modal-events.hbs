@@ -1,7 +1,7 @@
 {{#each data._embedded.events}}
 <div class="modal__window">
     <button type="button" class="modal__close-btn" data-action="modal-close">
-        <svg class="modal__close-icon">
+        <svg class="modal__close-icon" width="17" height="17">
             <use href="./images/svg/close-modal.svg"></use>
         </svg>
     </button>
@@ -62,51 +62,33 @@
                 </li>
                 <li class="modal__item-info">
                     <h2 class="modal__item-title">PRICES</h2>
-                    {{!-- <svg class="modal__ticket-icon">
-                        <use href="../images/svg/ticket.svg"></use>
-                    </svg> --}}
-                    {{#each priceRanges}}
+                    {{#if priceRanges}}
                     <div class="centered--left">
                         <p class="modal__item-content modal__item-content--icon">
-                        <span class="modal__item-content--capitalize">{{type}}</span>&nbsp;
-                        <span class="modal__item-content--bold">{{min}}-{{max}}</span>&nbsp;
-                        {{currency}}
+                        <span class="modal__item-content--capitalize">{{priceRanges.0.type}}</span>&nbsp;
+                        <span class="modal__item-content--bold">{{priceRanges.0.min}}-{{priceRanges.0.max}}</span>&nbsp;
+                        {{priceRanges.0.currency}}
                         </p>
                     </div>
-                    {{/each}}
+                    {{/if}}
+                    {{#unless priceRanges}}
+                    <div class="centered--left">
+                        <p class="modal__item-content">Ticket prices are available on the Ticketmaster website.</p>
+                    </div>
+                    {{/unless}}
                     <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--bottom-top link" data-action="buy-cheap">
                          BUY TICKETS
                     </a>
 
-                    <div class="centered--left">
-                        <p class="modal__item-content modal__item-content--icon">VIP {{eventHighPricesContent}} {{currency}}</p>
-                    </div>
-                    <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--top link" data-action="buy-expensive">
+                    <div class="centered--left centered--left--vip">
+                        <p class="modal__item-content modal__item-content--icon" id="vip">VIP {{eventHighPricesContent}} {{currency}}</p>
+
+                        <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn modal__btn--top link" data-action="buy-expensive">
                         BUY TICKETS
-                    </a>
+                        </a>
+                    </div>
                 </li>
-                    {{!-- <ul class="modal__item-buttons"> --}}
-                        {{!-- <li class="modal__item-info">
-                            {{#each priceRanges}}
-                            <p class="modal__item-content">{{type}} {{min}}-{{max}} {{currency}}</p>
-                            {{/each}}
-                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-cheap">
-                                    BUY TICKETS
-                            </a>
-                        </li> --}}
-                        {{!-- <li class="modal__item-info">
-                            <p class="modal__item-content">VIP {{eventHighPricesContent}} {{currency}}</p>
-                            <a href="{{url}}" target="_blank" rel="noopener noreferer" class="modal__btn link" data-action="buy-expensive">
-                                    BUY TICKETS
-                            </a>
-                        </li> --}}
-                    {{!-- </ul> --}}
             </ul>
-
-            {{!-- <div class="modal__more-btn-container">
-                <a href="{{_embedded.attractions.0.externalLinks.homepage.0.url}}" target="_blank" rel="noopener noreferer" class="modal__more-btn">MORE FROM THIS AUTHOR</a> 
-            </div> --}}
-
         </div>
     </div>
         <div class="modal__more-btn-container">
