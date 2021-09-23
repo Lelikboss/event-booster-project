@@ -183,10 +183,13 @@ body.show-modal .footer__modal {
   padding-left: 0;
 }
 .command__item {
-  // margin-left: 10px;
+  margin-left: 10px;
   margin-top: 5px;
 
-  flex-basis: calc((100% - 10px * 3) / 3);
+  flex-basis: calc((100% - 10px * 2) / 2);
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 10px * 3) / 3);
+  }
 }
 img {
   display: block;
