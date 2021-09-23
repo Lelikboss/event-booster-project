@@ -7,7 +7,7 @@ const refs = {
   eventsContainer: document.querySelector('.js-events-list'),
   inputEventSearch: document.querySelector('.header__input-search'),
   bodyEl: document.querySelector('body'),
-  btnToTop: document.querySelector('[data-up-btn]'),
+  btnToTopImg: document.querySelector('.btn-to-top'),
   closeBtnEl: document.querySelector('[data-action=modal-close]'),
 };
 export default refs;

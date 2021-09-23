@@ -2,7 +2,7 @@ const refs = {
   openModalBtn: document.querySelector('[data-action="open-modal-footer"]'),
   closeModalBtn: document.querySelector('[data-action="close-modal-footer"]'),
   backdrop: document.querySelector('.js-backdrop-footer'),
-  btnToTop:document.querySelector("[data-up-btn]"),
+  btnToTopImg:document.querySelector(".btn-to-top"),
 };
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
@@ -12,17 +12,17 @@ refs.backdrop.addEventListener('click', onBackdropClick);
 function onOpenModal() {
   window.addEventListener('keydown', onEscKeyPress);
   document.body.classList.add('show-modal');
-   refs.btnToTop.classList.add('visually-hidden');
+   refs.btnToTopImg.classList.remove('showBtn');
 }
 
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   document.body.classList.remove('show-modal');
-   refs.btnToTop.classList.remove('visually-hidden');
+   refs.btnToTopImg.classList.add('showBtn');
 }
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
-    console.log('Кликнули именно в бекдроп!!!!');
+    // console.log('Кликнули именно в бекдроп!!!!');
     onCloseModal();
   }
 }

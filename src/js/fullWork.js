@@ -110,7 +110,7 @@ createEventMarcup();
 
 //Pagination initialization
 function paginationInit() {
-  console.log('inside paginationInit');
+  // console.log('inside paginationInit');
   var pagination = new Pagination(document.getElementById('pagination'), {
     // totalItems: some number, //set total items
     itemsPerPage: amountEl, //amountEl, //set amount elements to display per page
