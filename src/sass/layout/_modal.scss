@@ -239,6 +239,11 @@
   color: var(--primary-text-color);
   background-color: var(--modal-accent-color);
   border-radius: 5px;
+  transition: background-color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: #2e009a;
+  }
 }
 .modal__btn--bottom-top {
   margin: 10px 0;
@@ -268,4 +273,9 @@
   color: var(--modal-accent-color);
   border: 1px solid var(--modal-accent-color);
   border-radius: 5px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    border: 1px solid var(--primary-title-color);
+  }
 }
