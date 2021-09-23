@@ -1,14 +1,14 @@
-const btnToTop = document.querySelector("[data-up-btn]");
+const btnToTopImg = document.querySelector(".btn-to-top");
 
-window.addEventListener("scroll", hideElement(btnToTop));
-btnToTop.addEventListener("click", onScroll);
+window.addEventListener("scroll", hideElement(btnToTopImg));
+btnToTopImg.addEventListener("click", onScroll);
 
 function hideElement(el) {
   return function hideOnScroll(e) {
-    if (scrollY < document.documentElement.clientHeight) {
-      el.classList.add("visually-hidden");
+    if (scrollY > document.documentElement.clientHeight) {
+      el.classList.add("showBtn");
     } else {
-      el.classList.remove("visually-hidden");
+      el.classList.remove("showBtn");
     }
   };
 }
