@@ -7,11 +7,13 @@
   width: 100%;
   height: 100%;
   overflow: visible;
-  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616532302_47-p-fon-dlya-afishi-50.png);
+  background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
-  // background: #fbfbfb url('//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.7.0/processing.gif')
-  //   no-repeat center center;
+
+  @media screen and (min-width: 1280px) {
+    background-image: url(/images/loader.jpg);
+  }
 }
 
 .visible {
@@ -27,6 +29,13 @@
 }
 
 #preloader .header__title {
+  font-size: 14px;
+  width: 200px;
+  @media screen and (min-width: 1280px) {
+    font-size: 48px;
+    width: 100%;
+  }
+  margin: 0 auto;
   animation-name: show-title;
   animation-duration: 9000ms;
   animation-timing-function: linear;
