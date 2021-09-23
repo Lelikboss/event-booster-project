@@ -5,7 +5,7 @@ import refs from './refs';
 
 refs.eventMarcup.addEventListener('click', openModal);
 function openModal(e) {
-  refs.bodyEl.classList.toggle('overflow--hidden');
+  // refs.bodyEl.classList.toggle('overflow--hidden');
   if (e.target.dataset.id) {
     const idNum = e.target.dataset.id;
 
@@ -14,13 +14,13 @@ function openModal(e) {
         onShow: instance => {
           instance.element().querySelector('[data-action="modal-close"]').onclick = () => {
             instance.close();
-            refs.bodyEl.classList.toggle('overflow--hidden');
+            // refs.bodyEl.classList.toggle('overflow--hidden');
           };
           window.addEventListener('keydown', e => {
             console.log(e.code);
             if (e.code === 'Escape') {
               instance.close();
-              refs.bodyEl.classList.toggle('overflow--hidden');
+              // refs.bodyEl.classList.toggle('overflow--hidden');
             }
           });
         },
