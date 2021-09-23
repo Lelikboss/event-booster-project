@@ -36,12 +36,10 @@ let amountEl = 20;
 
 const checkCountry = e => {
   e.preventDefault();
-  console.log(e.target.value);
   let countryName = e.target.value;
   refs.eventsContainer.innerHTML = '';
   page = 0;
   countryCode = getCode(countryName);
-  console.log(countryCode);
   refs.datalist.style.display = 'none';
   refs.inputCountryEl.classList.add('change-bottom-border');
   refs.inputCountryEl.value = countryName;
@@ -66,7 +64,6 @@ const searchEvent = e => {
   page = 0;
   createEventMarcup();
   paginationInit();
-  console.log(joinInputValue);
 };
 refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
 refs.simpleEl.style.position = 'absolute';
