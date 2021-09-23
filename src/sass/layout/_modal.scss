@@ -77,14 +77,6 @@
     right: 50px;
   }
 
-  &:hover,
-  &:focus {
-    background-color: var(--primary-title-color);
-    box-shadow: 0 0 10px var(--primary-title-color);
-    border-radius: 50px;
-    width: 23px;
-    height: 23px;
-  }
   cursor: pointer;
 }
 
@@ -224,7 +216,10 @@
 
 .modal__item-content--capitalize {
   display: inline-block;
-  text-transform: capitalize;
+  
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .modal__item-content--bold {
@@ -257,7 +252,8 @@
 }
 .modal__more-btn-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 25px;
 
   @media screen and (min-width: 1280px) {
@@ -266,8 +262,10 @@
 }
 .modal__more-btn {
   display: inline-block;
+  margin-bottom: 10px;
   padding: 10px;
   font-weight: var(--modal-btn-font-weight);
+  text-transform: uppercase;
   line-height: 1.25;
   font-size: 14px;
   color: var(--modal-accent-color);

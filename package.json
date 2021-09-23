@@ -33,6 +33,7 @@
     "get-all-country-info": "^1.1.6",
     "js": "^0.1.0",
     "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
     "pnotify": "^5.2.0",
     "simplebar": "^5.3.5",
     "tui-pagination": "^3.4.1"
