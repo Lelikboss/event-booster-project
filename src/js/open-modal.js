@@ -27,7 +27,7 @@ function openModal(e) {
       });
 
       instance.show();
-      refs.btnToTop.classList.add('visually-hidden');
+      refs.btnToTopImg.classList.remove('showBtn');
     });
   }
 }
