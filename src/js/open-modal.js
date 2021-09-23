@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import { getIdApi } from './apiServices';
 import template from '../templates/modal-events.hbs';
+import { throttle } from 'lodash';
 import refs from './refs';
 
 refs.eventMarcup.addEventListener('click', openModal);
@@ -16,13 +17,17 @@ function openModal(e) {
             instance.close();
             refs.bodyEl.classList.remove('overflow--hidden');
           };
-          window.addEventListener('keydown', e => {
-            console.log(e.code);
+          window.addEventListener('keydown', throttle(e => {
             if (e.code === 'Escape') {
               instance.close();
               refs.bodyEl.classList.remove('overflow--hidden');
             }
-          });
+          }, 500));
+          window.addEventListener('click', e => {
+            if (e.target.classList.contains('basicLightbox')) {
+              refs.bodyEl.classList.remove('overflow--hidden');
+            }
+          })
         },
       });
 
