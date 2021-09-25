@@ -69,6 +69,8 @@ refs.inputEventSearch.addEventListener('input', debounce(searchEvent, 1500));
 refs.simpleEl.style.position = 'absolute';
 refs.dataCountryList.style.position = 'absolute';
 
+
+let tempData;
 // work with API
 export const createEventMarcup = async e => {
   if (window.matchMedia('(min-width: 768px) and (max-width: 1279.98px)').matches) {
@@ -78,6 +80,7 @@ export const createEventMarcup = async e => {
   }
   try {
     await getEventApi({ countryCode, page, amountEl, keyword }).then(result => {
+      tempData = result;
       paginationInit();
       itemEventMarcup(result.data._embedded.events);
     });
@@ -128,7 +131,7 @@ function paginationInit() {
   let totalItems;
   const init = async total => {
     if (total === undefined && !totalItems) {
-      const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
+      // const tempData = await getEventApi({ countryCode, page, amountEl, keyword });
       totalItems = tempData.data.page.totalElements;
     }
 
